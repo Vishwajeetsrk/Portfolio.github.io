@@ -12,7 +12,7 @@ A modern, interactive, and fully responsive **personal portfolio website** showc
   </a>
 </p>
 
-> ▶️ **GIF auto-plays** on GitHub  
+> ▶️ **GIF auto-plays** on GitHub <a href="https://vishwajeetsrk.github.io/">View Live </a>
 
 
 ---
