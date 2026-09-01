@@ -85,7 +85,7 @@ function initializeNavigation() {
         
         // Update active nav link based on scroll position
         updateActiveNavLink();
-    });
+    }, { passive: true });
     
     // Set active link on click
     navLinks.forEach(link => {
@@ -159,13 +159,16 @@ function initializeMobileMenu() {
 
 function initializeParticles() {
     if (typeof particlesJS !== 'undefined') {
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 25 : 80;
+        const lineDist = isMobile ? 100 : 150;
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 80,
+                    value: particleCount,
                     density: {
                         enable: true,
-                        value_area: 800
+                        value_area: isMobile ? 500 : 800
                     }
                 },
                 color: {
@@ -179,7 +182,7 @@ function initializeParticles() {
                     }
                 },
                 opacity: {
-                    value: 0.5,
+                    value: isMobile ? 0.35 : 0.5,
                     random: false,
                     anim: {
                         enable: false
@@ -194,14 +197,14 @@ function initializeParticles() {
                 },
                 line_linked: {
                     enable: true,
-                    distance: 150,
+                    distance: lineDist,
                     color: '#ffffff',
-                    opacity: 0.4,
+                    opacity: isMobile ? 0.25 : 0.4,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 2,
+                    speed: isMobile ? 1.2 : 2,
                     direction: 'none',
                     random: false,
                     straight: false,
@@ -213,11 +216,11 @@ function initializeParticles() {
                 detect_on: 'canvas',
                 events: {
                     onhover: {
-                        enable: true,
+                        enable: !isMobile,
                         mode: 'grab'
                     },
                     onclick: {
-                        enable: true,
+                        enable: !isMobile,
                         mode: 'push'
                     },
                     resize: true
@@ -230,7 +233,7 @@ function initializeParticles() {
                         }
                     },
                     push: {
-                        particles_nb: 4
+                        particles_nb: 3
                     }
                 }
             },
@@ -473,25 +476,8 @@ function createScrollToTopButton() {
     const button = document.createElement('button');
     button.innerHTML = '<i class="fas fa-arrow-up"></i>';
     button.className = 'scroll-to-top';
-    button.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.25rem;
-        box-shadow: var(--shadow-lg);
-        z-index: 999;
-        transition: all 0.3s ease;
-    `;
+    button.setAttribute('aria-label', 'Scroll to top');
+    button.style.display = 'none';
     
     document.body.appendChild(button);
     
@@ -501,7 +487,7 @@ function createScrollToTopButton() {
         } else {
             button.style.display = 'none';
         }
-    });
+    }, { passive: true });
     
     button.addEventListener('click', function() {
         window.scrollTo({
@@ -1455,6 +1441,7 @@ function initializeLinkPreview() {
 
     const previewLinks = document.querySelectorAll('.link-preview');
     if (previewLinks.length === 0) return;
+    if (window.matchMedia('(hover: none)').matches || window.innerWidth < 992) return;
 
     previewLinks.forEach(link => {
         let hideTimeout = null;
@@ -1564,6 +1551,7 @@ function initializeAceternityInputs() {
 function initializeFollowerPointer() {
     const cards = document.querySelectorAll('.follower-pointer-card');
     if (cards.length === 0) return;
+    if (window.matchMedia('(hover: none)').matches || window.innerWidth < 992) return;
 
     cards.forEach(card => {
         let badge = card.querySelector('.follower-pointer-badge');
