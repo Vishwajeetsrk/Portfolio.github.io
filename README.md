@@ -12,7 +12,7 @@
 
 **A state-of-the-art, high-performance personal portfolio, executive resume, and open-source UI design system showcasing cutting-edge Aceternity UI animations converted into lightweight, zero-dependency Vanilla HTML5, CSS3, and JavaScript.**
 
-[Explore Live Demo](https://vishwajeetsrk.github.io/) • [UI Component Library](#-ui-animation--components-library) • [Flagship Projects](#-flagship-projects) • [How to Use & Copy](#-how-to-copy--use-any-component) • [Local Setup](#-local-setup--quickstart)
+[Explore Live Demo](https://vishwajeetsrk.github.io/) • [Flagship Projects with GIFs](#-flagship-projects-showcase) • [UI Component Library](#-ui-animation--components-library) • [How to Use & Copy](#-how-to-copy--use-any-component) • [Local Setup](#-local-setup--quickstart)
 
 </div>
 
@@ -20,11 +20,16 @@
 
 ## 📖 Table of Contents
 
+- [🚀 Flagship Projects Showcase (with GIFs)](#-flagship-projects-showcase)
+  - [1. Learnify AI — Multi-Modal AI Learning & Career SaaS](#1-learnify-ai--multi-modal-ai-learning--career-saas)
+  - [2. DreamSync — AI Career Intelligence & ATS Suite](#2-dreamsync--ai-career-intelligence--ats-suite)
+  - [3. Luxury Laundry — Real-Time On-Demand SaaS](#3-luxury-laundry--real-time-on-demand-saas)
+  - [4. JARVIS AI OS — Agentic Desktop System](#4-jarvis-ai-os--agentic-desktop-system)
 - [🌟 Professional Highlights](#-professional-highlights)
 - [🎨 UI Animation & Components Library](#-ui-animation--components-library)
-  - [1. Aceternity Cal.com Meeting Scheduler & Booking Modal](#1-aceternity-calcom-meeting-scheduler--booking-modal)
+  - [1. Aceternity Cal.com Meeting Scheduler & Modal](#1-aceternity-calcom-meeting-scheduler--modal)
   - [2. Aceternity Dynamic Colourful Text](#2-aceternity-dynamic-colourful-text)
-  - [3. Aceternity Floating Navbar & Product Menus](#3-aceternity-floating-navbar--product-menus)
+  - [3. Aceternity Floating Navbar & GIF Product Menus](#3-aceternity-floating-navbar--gif-product-menus)
   - [4. Aceternity Hover Border Gradient Button](#4-aceternity-hover-border-gradient-button)
   - [5. Hero Highlight Flashlight & Text Marker Sweep](#5-hero-highlight-flashlight--text-marker-sweep)
   - [6. Aceternity Card Spotlight Flashlight](#6-aceternity-card-spotlight-flashlight)
@@ -34,7 +39,6 @@
   - [10. Aceternity Encrypted Matrix Text Decoder](#10-aceternity-encrypted-matrix-text-decoder)
   - [11. Aceternity Floating Link Preview Popover](#11-aceternity-floating-link-preview-popover)
   - [12. Aceternity Reactive Input Glows](#12-aceternity-reactive-input-glows)
-- [🚀 Flagship Projects](#-flagship-projects)
 - [🛠️ Core Tech Stack](#️-core-tech-stack)
 - [📋 How to Copy & Use Any Component](#-how-to-copy--use-any-component)
 - [💻 Local Setup & Quickstart](#-local-setup--quickstart)
@@ -42,9 +46,95 @@
 
 ---
 
+## 🚀 Flagship Projects Showcase
+
+Every flagship project has been deployed live to production with source code available on GitHub.
+
+---
+
+### 1. Learnify AI — Multi-Modal AI Learning & Career SaaS
+
+> **Live Platform:** [https://www.learnifyai.in/](https://www.learnifyai.in/) • **GitHub:** [Vishwajeetsrk/learnifyai](https://github.com/Vishwajeetsrk/learnifyai)
+
+<div align="center">
+  <img src="assets/projects/learnify-ai.gif" alt="Learnify AI Platform Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+</div>
+
+<br />
+
+- **Overview:** End-to-end full-stack AI SaaS platform unifying multi-modal AI tutoring, personalized career roadmapping, AI resume builder, ATS compatibility analyzer, creator publishing tools, and community peer learning.
+- **Tech Stack:** React 19, TypeScript, Tailwind CSS, Supabase, OpenRouter API, Cashfree Payment Gateway.
+- **Key Features:**
+  - Dynamic AI tutoring with contextual multi-turn conversation memory.
+  - ATS resume parsing, keyword density scoring, and one-click PDF generation.
+  - Integrated subscription monetization with Cashfree payment webhooks.
+  - Multi-tenant student dashboard with real-time progress analytics.
+
+---
+
+### 2. DreamSync — AI Career Intelligence & ATS Suite
+
+> **Live Platform:** [https://dream-sync-nine.vercel.app/](https://dream-sync-nine.vercel.app/) • **GitHub:** [Vishwajeetsrk/dreamssync_test](https://github.com/Vishwajeetsrk/dreamssync_test)
+
+<div align="center">
+  <img src="assets/projects/dreamsync.gif" alt="DreamSync AI Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+</div>
+
+<br />
+
+- **Overview:** AI-driven career acceleration suite featuring automated ATS resume checking, LinkedIn profile optimization, and dynamic portfolio generation powered by Google Gemini & OpenRouter.
+- **Tech Stack:** Next.js App Router, React, Tailwind CSS, Firebase, Google Gemini API, Upstash Redis.
+- **Key Features:**
+  - Deep semantic comparison between candidate resumes and job descriptions.
+  - In-browser AI portfolio website generator with customizable themes.
+  - Sub-millisecond rate limiting and caching via Upstash Serverless Redis.
+  - Secure authentication and document storage with Firebase Cloud Suite.
+
+---
+
+### 3. Luxury Laundry — Real-Time On-Demand SaaS
+
+> **Live Platform:** [https://luxurylaundry.vercel.app/](https://luxurylaundry.vercel.app/) • **GitHub:** [Vishwajeetsrk/LUXURY-LAUNDRY](https://github.com/Vishwajeetsrk/LUXURY-LAUNDRY)
+
+<div align="center">
+  <img src="assets/projects/luxury-laundry.gif" alt="Luxury Laundry Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+</div>
+
+<br />
+
+- **Overview:** Full-stack on-demand laundry and garment management platform with synchronized customer order tracking, administrator control center, and live WebSockets status notifications.
+- **Tech Stack:** Next.js, Express.js, PostgreSQL, Prisma ORM, Socket.io, Tailwind CSS.
+- **Key Features:**
+  - Real-time bidirectional order updates with WebSocket streaming (`Socket.io`).
+  - Strict ACID transaction management with PostgreSQL and Prisma ORM.
+  - Role-based access control (RBAC) distinguishing customers, riders, and admins.
+  - Responsive booking flows with time-slot reservation and route calculation.
+
+---
+
+### 4. JARVIS AI OS — Agentic Desktop System
+
+> **Live Platform:** [https://jarvisaios.vercel.app/](https://jarvisaios.vercel.app/) • **GitHub:** [Vishwajeetsrk/JARVIS-AI-OS](https://github.com/Vishwajeetsrk/JARVIS-AI-OS)
+
+<div align="center">
+  <img src="assets/projects/jarvis-ai-os.gif" alt="JARVIS AI OS Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
+</div>
+
+<br />
+
+- **Overview:** Experimental AI desktop operating system interface integrating persistent semantic memory recall, autonomous multi-agent task execution, and interactive voice intelligence.
+- **Tech Stack:** JavaScript, AI Agents, Voice AI, Semantic Recall, Tauri, Progressive Web App (PWA).
+- **Key Features:**
+  - Conversational Voice AI agent capable of executing desktop automation commands.
+  - Vector-based semantic memory recall retaining long-term contextual facts.
+  - Multi-window desktop GUI with movable, resizable agent terminals.
+  - Cross-platform packaging support via Tauri framework and PWA caching.
+
+---
+
 ## 🌟 Professional Highlights
 
-- **AI SaaS & Full-Stack Architect:** Built production-grade platforms including **[Learnify AI](https://www.learnifyai.in/)**, **[DreamSync](https://dream-sync-nine.vercel.app/)**, **[Luxury Laundry](https://luxurylaundry.vercel.app/)**, and **[JARVIS AI OS](https://jarvisaios.vercel.app/)**.
+- **AI SaaS & Full-Stack Architect:** Built and deployed production-grade platforms including **[Learnify AI](https://www.learnifyai.in/)**, **[DreamSync](https://dream-sync-nine.vercel.app/)**, **[Luxury Laundry](https://luxurylaundry.vercel.app/)**, and **[JARVIS AI OS](https://jarvisaios.vercel.app/)**.
 - **Enterprise Data Operations Specialist:** Audited, cleansed, and reconciled **200,000+ records** at Rootbridge, resolving 50+ monthly critical discrepancies with a measured **30% accuracy boost** using Microsoft Excel Power Query and Salesforce CRM.
 - **Academic Distinction:** BCA Graduate with **First Class Exemplary (8.1 CGPA / 9.06 SGPA | 89.57%)** from St. Aloysius Degree College, Bengaluru North University. Capstone Project: **148/150**; Internship: **99/100**.
 - **Accolades & Certifications:** 1st Prize in collegiate Web Design (NEURO2026); Certified in CrewAI Multi-Agent Systems, GitHub Copilot, and GenAI Data Analytics.
@@ -53,44 +143,23 @@
 
 ## 🎨 UI Animation & Components Library
 
-This repository doubles as an open-source showcase of **Aceternity UI components converted to pure Vanilla HTML, CSS, and JS** with **zero React/npm build requirements**. You can drop any of these directly into static websites, WordPress, Shopify, Next.js, or HTML templates.
+This repository is an open-source showcase of **Aceternity UI components converted to pure Vanilla HTML, CSS, and JS** with **zero React/npm build requirements**. You can drop any of these directly into static websites, WordPress, Shopify, Next.js, or HTML templates.
 
 ---
 
-### 1. Aceternity Cal.com Meeting Scheduler & Booking Modal
-> **Live Demo:** Click *"Chat with Vishwajeet"* in the top navigation or hero section of [vishwajeetsrk.github.io](https://vishwajeetsrk.github.io/)
+### 1. Aceternity Cal.com Meeting Scheduler & Modal
+> **Live Demo:** Click *"Chat with Vishwajeet"* in the top navigation, hero section, or contact area of [vishwajeetsrk.github.io](https://vishwajeetsrk.github.io/)
 
-A pixel-perfect replica of the **Cal.com** scheduling experience from Aceternity's Productized Agency template.
-- **3-Column Architecture:** Left event summary panel, center interactive month date picker, right available slot list.
+A pixel-perfect, native replica of the **Cal.com** scheduling experience from Aceternity's Productized Agency template.
+- **3-Column Layout:** Left event summary panel, center interactive month date picker, right available slot list.
 - **Strict Availability Engine:** Configured for daily recurring availability **`3:00 PM – 9:00 PM IST`** with automatic past-time and past-date disabling.
 - **Signature Split-Confirm Interaction:** Clicking any time slot reveals an animated `[ Confirm ]` button that slides forward into attendee details.
-- **Multi-Channel Delivery:** Collects Name, Email, **Mobile / WhatsApp Number**, and Topic. Sends full notifications and provides instant WhatsApp messaging.
-- **Multi-Calendar Sync:** One-click integration with **Google Calendar**, **Outlook (Live/365)**, and dynamic on-the-fly **`.ics` iCalendar file generation** for native desktop import.
-- **Reschedule & Cancel Workflows:** Full state rollback and rescheduling controls.
-
-#### How to Copy & Use:
-1. **HTML Markup:**
-```html
-<div class="cal-modal-overlay" id="chatModalOverlay">
-  <div class="cal-modal-window">
-    <button class="cal-modal-close" id="chatModalClose"><i class="fas fa-times"></i></button>
-    <div class="cal-modal-content" id="calBookingView">
-      <!-- Sidebar -->
-      <div class="cal-sidebar">...</div>
-      <!-- Date Picker -->
-      <div class="cal-date-picker">...</div>
-      <!-- Time Slots -->
-      <div class="cal-time-slots" id="calTimeSlotsPanel">...</div>
-      <!-- Attendee Form -->
-      <div class="cal-details-panel" id="calDetailsPanel" style="display:none;">...</div>
-    </div>
-    <!-- Confirmation Screen -->
-    <div class="cal-success-view" id="calSuccessView" style="display:none;">...</div>
-  </div>
-</div>
-```
-2. **CSS:** Copy `.cal-modal-overlay`, `.cal-modal-window`, `.cal-slot-btn`, and `.cal-meeting-card` rules from [`css/style.css`](file:///c:/Users/Vishwajeet/OneDrive/Documents/vishwajeetsrk.github.io/css/style.css).
-3. **JS:** Call `initializeBookChatAnimation()` from [`js/main.js`](file:///c:/Users/Vishwajeet/OneDrive/Documents/vishwajeetsrk.github.io/js/main.js).
+- **Clean Booking Form:** Collects Name, Email, and Topic (phone removed for privacy).
+- **Direct Multi-Calendar Sync:**
+  - 📅 **Google Calendar:** Native tab navigation with exact Universal UTC timestamps, `ctz=Asia/Kolkata`, and Google Meet attachment.
+  - 📆 **Outlook Calendar:** Deep link with ISO 8601 UTC timestamps.
+  - 💾 **ICS File Download:** Instant native download of RFC 5545 `.ics` file for Apple Calendar, Windows, and Outlook Desktop.
+  - 🎥 **Instant Google Meet:** Direct link to `https://meet.google.com/new` for 1-click video calls.
 
 ---
 
@@ -101,30 +170,14 @@ A vibrant animated text effect inspired by Aceternity UI's `ColourfulText`.
 - Dynamically cycles words through a curated gradient spectrum (`#2563eb`, `#e11d48`, `#059669`, `#d97706`, `#7c3aed`, `#0891b2`).
 - Breaks target words into individual character spans with staggered spring delays (`transition-delay: calc(index * 25ms)`), smooth blur-ins, and floating upward translations.
 
-#### How to Copy & Use:
-```html
-<h2>Featured <span class="colourful-text" data-text="Projects">Projects</span></h2>
-```
-```javascript
-// Add to your JS:
-function initializeColourfulText() {
-  document.querySelectorAll('.colourful-text').forEach(el => {
-    const text = el.getAttribute('data-text') || el.textContent;
-    el.innerHTML = text.split('').map((char, i) => 
-      `<span class="colourful-char" style="--char-idx: ${i}">${char === ' ' ? '&nbsp;' : char}</span>`
-    ).join('');
-  });
-}
-```
-
 ---
 
-### 3. Aceternity Floating Navbar & Product Menus
-> **Live Demo:** Top header on [vishwajeetsrk.github.io](https://vishwajeetsrk.github.io/)
+### 3. Aceternity Floating Navbar & GIF Product Menus
+> **Live Demo:** Hover "Projects" in the navbar on [vishwajeetsrk.github.io](https://vishwajeetsrk.github.io/)
 
-A floating navigation bar that delivers a modern glassmorphic aesthetic.
+A floating navigation bar that delivers an ultra-modern glassmorphic aesthetic.
 - **Glassmorphism:** `backdrop-filter: blur(16px)` with responsive light/dark adaptation.
-- **Dropdown Menus:** Hover triggers smooth vertical card dropdowns featuring custom gradient badge icons, micro-descriptions, and subtle spring elevation.
+- **GIF Product Thumbnails:** Hovering "Projects" reveals interactive thumbnail cards playing live demo GIFs for all 4 flagship applications!
 - **Mobile Menu Drawer:** Dedicated drawer with mobile touch-optimized chat buttons.
 
 ---
@@ -195,19 +248,6 @@ A button wrapped in an animated border glow layer.
 > **Live Demo:** Contact form on [vishwajeetsrk.github.io](https://vishwajeetsrk.github.io/)
 
 - Form inputs listen to mouse movements and project a radial gradient focus halo that tracks the cursor along the input borders.
-
----
-
-## 🚀 Flagship Projects
-
-| Project | Live Demo | Repository | Description | Technologies |
-|---|---|---|---|---|
-| **Learnify AI** | [Live Platform](https://www.learnifyai.in/) | [GitHub](https://github.com/Vishwajeetsrk/learnifyai) | End-to-end full-stack AI SaaS platform unifying multi-modal AI tutoring, career roadmapping, resume builder, and creator tools. | React 19, TypeScript, Tailwind, Supabase, OpenRouter API, Cashfree |
-| **DreamSync** | [Live Platform](https://dream-sync-nine.vercel.app/) | [GitHub](https://github.com/Vishwajeetsrk/dreamssync_test) | AI-driven career acceleration suite featuring automated ATS resume checking, LinkedIn optimization, and portfolio generation. | Next.js, React, Tailwind, Firebase, Google Gemini, Upstash Redis |
-| **Luxury Laundry** | [Live Platform](https://luxurylaundry.vercel.app/) | [GitHub](https://github.com/Vishwajeetsrk/LUXURY-LAUNDRY) | Real-time on-demand laundry management platform with synchronized order tracking and live WebSockets status notifications. | Next.js, Express.js, PostgreSQL, Prisma ORM, Socket.io, Tailwind |
-| **JARVIS AI OS** | [Live Platform](https://jarvisaios.vercel.app/) | [GitHub](https://github.com/Vishwajeetsrk/JARVIS-AI-OS) | Experimental desktop operating system interface integrating persistent semantic memory recall, voice AI, and autonomous agent tasks. | JavaScript, AI Agents, Voice AI, Semantic Recall, Tauri, PWA |
-| **TaskFlow** | [Live Platform](https://taskflow-production-9ca3.up.railway.app/login) | [GitHub](https://github.com/Vishwajeetsrk/TaskFlow) | Full-stack production task management application featuring JWT authentication, task CRUD workflows, and gamification. | Node.js, Express.js, MongoDB, EJS, Railway |
-| **Enterprise Data Reconciliation** | [Live Portfolio](https://vishwajeetsrk.github.io/) | [GitHub](https://github.com/Vishwajeetsrk) | High-volume validation pipeline reconciling 200,000+ Salesforce CRM and Excel records with a 30% measured accuracy boost. | Salesforce CRM, Data Loader, Power Query, Excel, Python |
 
 ---
 
