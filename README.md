@@ -62,7 +62,7 @@ This repository doubles as an open-source showcase of **Aceternity UI components
 
 A pixel-perfect replica of the **Cal.com** scheduling experience from Aceternity's Productized Agency template.
 - **3-Column Architecture:** Left event summary panel, center interactive month date picker, right available slot list.
-- **Strict Availability Engine:** Configured for daily recurring availability **`3:00 PM – 7:30 PM IST`** with automatic past-time and past-date disabling.
+- **Strict Availability Engine:** Configured for daily recurring availability **`3:00 PM – 9:00 PM IST`** with automatic past-time and past-date disabling.
 - **Signature Split-Confirm Interaction:** Clicking any time slot reveals an animated `[ Confirm ]` button that slides forward into attendee details.
 - **Multi-Channel Delivery:** Collects Name, Email, **Mobile / WhatsApp Number**, and Topic. Sends full notifications and provides instant WhatsApp messaging.
 - **Multi-Calendar Sync:** One-click integration with **Google Calendar**, **Outlook (Live/365)**, and dynamic on-the-fly **`.ics` iCalendar file generation** for native desktop import.
@@ -310,7 +310,6 @@ To run the portfolio locally:
 
 - **Portfolio:** [vishwajeetsrk.github.io](https://vishwajeetsrk.github.io/)
 - **Email:** [vishwajeetsrk@gmail.com](mailto:vishwajeetsrk@gmail.com)
-- **Phone / WhatsApp:** [+91 85952 02922](tel:+918595202922)
 - **LinkedIn:** [linkedin.com/in/vishwajeetsrk](https://www.linkedin.com/in/vishwajeetsrk/)
 - **GitHub:** [github.com/Vishwajeetsrk](https://github.com/Vishwajeetsrk)
 - **Location:** Bengaluru, Karnataka, India

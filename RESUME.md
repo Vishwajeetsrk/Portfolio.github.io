@@ -1,6 +1,6 @@
 # Vishwajeet
 **AI Software Engineer | Full Stack Developer | AI Application Developer**  
-Bengaluru, Karnataka, India • +91 85952 02922 • [vishwajeetsrk@gmail.com](mailto:vishwajeetsrk@gmail.com)  
+Bengaluru, Karnataka, India • [vishwajeetsrk@gmail.com](mailto:vishwajeetsrk@gmail.com)  
 [LinkedIn](https://www.linkedin.com/in/vishwajeetsrk/) • [GitHub](https://github.com/Vishwajeetsrk) • [Portfolio](https://vishwajeetsrk.github.io/) • [Learnify AI](https://www.learnifyai.in/)
 
 ---

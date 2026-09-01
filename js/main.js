@@ -334,7 +334,6 @@ function initializeSmoothScroll() {
 function initializeContactForm() {
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
-    const contactWaAlert = document.getElementById('contactWaAlert');
     const contactSubmitBtn = document.getElementById('contactSubmitBtn');
     
     if (contactForm) {
@@ -371,12 +370,6 @@ function initializeContactForm() {
                         message: formData.message
                     })
                 }).catch(() => {});
-
-                // Prepare WhatsApp instant notification link
-                if (contactWaAlert) {
-                    const waMsg = encodeURIComponent(`Hi Vishwajeet, I sent you a message via your portfolio:\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nSubject: ${formData.subject}\nMessage: ${formData.message}`);
-                    contactWaAlert.href = `https://wa.me/918595202922?text=${waMsg}`;
-                }
 
                 // Show success message
                 contactForm.style.display = 'none';
@@ -1818,20 +1811,20 @@ function initializeBookChatAnimation() {
 
     if (!modalOverlay) return;
 
-    // Available daily time slots: strictly 3:00 PM to 7:30 PM everyday
+    // Available daily time slots: strictly 3:00 PM to 9:00 PM everyday
     const dailySlots = [
         "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
         "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM",
-        "07:00 PM", "07:30 PM"
+        "07:00 PM", "07:30 PM", "08:00 PM", "08:30 PM", "09:00 PM"
     ];
 
     let currentDate = new Date();
     let viewYear = currentDate.getFullYear();
     let viewMonth = currentDate.getMonth();
 
-    // Default selected date: tomorrow if past 7:30 PM today, otherwise today
+    // Default selected date: tomorrow if past 9:00 PM today, otherwise today
     let selectedDate = new Date();
-    if (currentDate.getHours() >= 19 && currentDate.getMinutes() > 30) {
+    if (currentDate.getHours() >= 21) {
         selectedDate.setDate(selectedDate.getDate() + 1);
     }
     let selectedSlot = "04:00 PM";
@@ -2129,14 +2122,7 @@ function initializeBookChatAnimation() {
                 };
             }
 
-            // 4. WhatsApp instant notification
-            const calWa = document.getElementById('calWhatsappLink');
-            if (calWa) {
-                const waText = encodeURIComponent(`Hi Vishwajeet, I have scheduled a 30-min call with you on ${formatFullDate(selectedDate)} at ${selectedSlot} IST.\nMy Name: ${name}\nMy Email: ${email}\nMy Phone: ${phone}\nTopic: ${notes}`);
-                calWa.href = `https://wa.me/918595202922?text=${waText}`;
-            }
-
-            // 5. Send full booking payload to Vishwajeet
+            // 4. Send full booking payload to Vishwajeet
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
