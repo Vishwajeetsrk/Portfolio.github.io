@@ -304,24 +304,26 @@ function animateSkillBar(skillItem) {
 // ===================================
 
 function initializeSmoothScroll() {
-    const links = document.querySelectorAll('a[href^="#"]');
+    // Only intercept in-page navigation links (e.g., #home, #about) and exclude modals, downloads, calendar buttons
+    const links = document.querySelectorAll('a[href^="#"]:not([href="#"]):not([target="_blank"]):not(.cal-cal-button):not(.cal-meet-badge-btn):not([download])');
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+            if (!targetId || targetId === '#' || targetId.length <= 1) return;
             
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            try {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    const offsetTop = targetElement.offsetTop - 80; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            } catch (err) {
+                // Ignore if not a valid DOM selector
             }
         });
     });
@@ -2128,16 +2130,21 @@ function initializeBookChatAnimation() {
             if (calGuestEmailWho) calGuestEmailWho.textContent = email;
             if (calMeetDirectLink) {
                 calMeetDirectLink.href = googleMeetUrl;
+                calMeetDirectLink.onclick = (e) => {
+                    e.stopPropagation();
+                    window.open(googleMeetUrl, '_blank', 'noopener,noreferrer');
+                    e.preventDefault();
+                };
             }
 
             // 1. Real Google Calendar Link with UTC time, attendee auto-invite & Google Meet
             const calGcal = document.getElementById('calGcalLink');
             if (calGcal) {
                 const gcalDetails = `Chat with Vishwajeet (AI Software Engineer)\n\n` +
-                    `📌 Topic: ${notes}\n` +
-                    `👤 Host: Vishwajeet (vishwajeetsrk@gmail.com)\n` +
-                    `👤 Guest: ${name} (${email})\n` +
-                    `🎥 Google Meet: ${googleMeetUrl}\n\n` +
+                    `Topic: ${notes}\n` +
+                    `Host: Vishwajeet (vishwajeetsrk@gmail.com)\n` +
+                    `Guest: ${name} (${email})\n` +
+                    `Google Meet: ${googleMeetUrl}\n\n` +
                     `Looking forward to our conversation!`;
 
                 let gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE` +
@@ -2152,6 +2159,11 @@ function initializeBookChatAnimation() {
                 }
 
                 calGcal.href = gcalUrl;
+                calGcal.onclick = (e) => {
+                    e.stopPropagation();
+                    window.open(gcalUrl, '_blank', 'noopener,noreferrer');
+                    e.preventDefault();
+                };
             }
 
             // 2. Real Outlook Web / Office 365 Deeplink with ISO UTC dates
@@ -2171,6 +2183,11 @@ function initializeBookChatAnimation() {
                     `&body=${encodeURIComponent(outlookBody)}`;
 
                 calOutlook.href = outlookUrl;
+                calOutlook.onclick = (e) => {
+                    e.stopPropagation();
+                    window.open(outlookUrl, '_blank', 'noopener,noreferrer');
+                    e.preventDefault();
+                };
             }
 
             // 3. Real Native RFC 5545 ICS File Download via direct data URI
@@ -2211,11 +2228,17 @@ function initializeBookChatAnimation() {
                 const icsString = icsLines.join('\r\n');
                 calIcsLink.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(icsString);
                 calIcsLink.setAttribute('download', 'Meeting-with-Vishwajeet.ics');
+                calIcsLink.onclick = (e) => {
+                    e.stopPropagation();
+                };
             }
 
             // 4. Update Cal.com badge link in success view
             if (calSuccessDirectLink) {
                 calSuccessDirectLink.href = calLinks[selectedDuration];
+                calSuccessDirectLink.onclick = (e) => {
+                    e.stopPropagation();
+                };
             }
 
             // 5. Send booking payload to Vishwajeet
