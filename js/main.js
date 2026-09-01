@@ -1828,6 +1828,36 @@ function initializeBookChatAnimation() {
         selectedDate.setDate(selectedDate.getDate() + 1);
     }
     let selectedSlot = "04:00 PM";
+    let selectedDuration = 30; // 30 or 15 mins
+    const calLinks = {
+        30: 'https://cal.com/vishwajeet-srk/30min',
+        15: 'https://cal.com/vishwajeet-srk/15min'
+    };
+
+    const dur30Btn = document.getElementById('dur30Btn');
+    const dur15Btn = document.getElementById('dur15Btn');
+    const calHostTitle = document.getElementById('calHostTitle');
+    const calDirectLink = document.getElementById('calDirectLink');
+    const calSuccessDirectLink = document.getElementById('calSuccessDirectLink');
+
+    function setDuration(dur) {
+        selectedDuration = dur;
+        if (dur30Btn) dur30Btn.classList.toggle('active', dur === 30);
+        if (dur15Btn) dur15Btn.classList.toggle('active', dur === 15);
+        if (calHostTitle) {
+            calHostTitle.textContent = dur === 15 ? '15 Min Quick Chat' : '30 Min Chat';
+        }
+        if (calDirectLink) {
+            calDirectLink.href = calLinks[dur];
+        }
+        if (calSuccessDirectLink) {
+            calSuccessDirectLink.href = calLinks[dur];
+        }
+        updateSelectedPill();
+    }
+
+    if (dur30Btn) dur30Btn.addEventListener('click', () => setDuration(30));
+    if (dur15Btn) dur15Btn.addEventListener('click', () => setDuration(15));
 
     const monthNames = [
         "January", "February", "March", "April", "May", "June",
@@ -1869,7 +1899,7 @@ function initializeBookChatAnimation() {
 
             row.appendChild(slotBtn);
 
-            // If selected: show the signature Cal.com [Confirm] button next to slot
+            // Cal.com style: When active, render animated Confirm Pill
             if (slotTime === selectedSlot) {
                 const confirmPill = document.createElement('button');
                 confirmPill.type = 'button';
@@ -1877,14 +1907,9 @@ function initializeBookChatAnimation() {
                 confirmPill.textContent = 'Confirm';
 
                 confirmPill.addEventListener('click', () => {
-                    // Transition to attendee details panel
+                    updateSelectedPill();
                     if (slotsPanel) slotsPanel.style.display = 'none';
-                    if (detailsPanel) {
-                        detailsPanel.style.display = 'flex';
-                        if (calSelectedPillText) {
-                            calSelectedPillText.textContent = `${formatDayHeader(selectedDate)} at ${selectedSlot}`;
-                        }
-                    }
+                    if (detailsPanel) detailsPanel.style.display = 'flex';
                 });
 
                 row.appendChild(confirmPill);
@@ -1894,6 +1919,12 @@ function initializeBookChatAnimation() {
         });
     }
 
+    function updateSelectedPill() {
+        if (calSelectedPillText) {
+            calSelectedPillText.textContent = `${formatDayHeader(selectedDate)} at ${selectedSlot} (${selectedDuration} mins)`;
+        }
+    }
+
     // Render Calendar Month Grid
     function renderCalendar() {
         if (!calDaysGrid || !calMonthYear) return;
@@ -1901,14 +1932,15 @@ function initializeBookChatAnimation() {
         calMonthYear.textContent = `${monthNames[viewMonth]} ${viewYear}`;
         calDaysGrid.innerHTML = '';
 
-        const firstDayIndex = (new Date(viewYear, viewMonth, 1).getDay() + 6) % 7; // Monday = 0
-        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+        const firstDayOfMonth = new Date(viewYear, viewMonth, 1);
+        let startDay = firstDayOfMonth.getDay();
+        startDay = (startDay === 0) ? 6 : startDay - 1; // Mon = 0, Sun = 6
 
+        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        // Empty padding cells before first day
-        for (let i = 0; i < firstDayIndex; i++) {
+        for (let i = 0; i < startDay; i++) {
             const emptyCell = document.createElement('div');
             emptyCell.className = 'cal-day-cell empty';
             calDaysGrid.appendChild(emptyCell);
@@ -2043,7 +2075,7 @@ function initializeBookChatAnimation() {
 
             const startIso = `${year}${month}${day}T${String(h).padStart(2, '0')}${mins}00`;
             let endH = h;
-            let endM = parseInt(mins, 10) + 30;
+            let endM = parseInt(mins, 10) + selectedDuration;
             if (endM >= 60) {
                 endM -= 60;
                 endH += 1;
@@ -2056,14 +2088,18 @@ function initializeBookChatAnimation() {
             if (endDisplayH === 0) endDisplayH = 12;
             const endTimeStr = `${String(endDisplayH).padStart(2, '0')}:${String(endM).padStart(2, '0')} ${endPeriod}`;
 
+            const meetingName = selectedDuration === 15 ? `15 Min Quick Chat` : `30 Min Chat`;
+
             // Populate Upgraded Cal.com Screen details
-            const calGuestNameDisplay = document.getElementById('calGuestNameDisplay');
+            const calSuccessWhat = document.getElementById('calSuccessWhat');
             const calSuccessWhen = document.getElementById('calSuccessWhen');
             const calGuestNameWho = document.getElementById('calGuestNameWho');
             const calGuestEmailWho = document.getElementById('calGuestEmailWho');
             const calGuestPhoneWho = document.getElementById('calGuestPhoneWho');
 
-            if (calGuestNameDisplay) calGuestNameDisplay.textContent = name;
+            if (calSuccessWhat) {
+                calSuccessWhat.innerHTML = `${meetingName} between Vishwajeet and <span id="calGuestNameDisplay">${name}</span>`;
+            }
             if (calSuccessWhen) {
                 calSuccessWhen.textContent = `${formatFullDate(selectedDate)}, ${selectedSlot} – ${endTimeStr} (India Standard Time)`;
             }
@@ -2074,7 +2110,7 @@ function initializeBookChatAnimation() {
             // 1. Google Calendar Link
             const calGcal = document.getElementById('calGcalLink');
             if (calGcal) {
-                const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Chat with Vishwajeet (' + name + ')')}&dates=${startIso}/${endIso}&details=${encodeURIComponent('Topic: ' + notes + '\nHost: Vishwajeet (vishwajeetsrk@gmail.com)\nGuest: ' + name + ' (' + email + ') Phone: ' + phone)}&location=Google+Meet`;
+                const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(meetingName + ' (' + name + ')')}&dates=${startIso}/${endIso}&details=${encodeURIComponent('Topic: ' + notes + '\nHost: Vishwajeet (vishwajeetsrk@gmail.com)\nGuest: ' + name + ' (' + email + ') Phone: ' + phone + '\nBooked via Cal.com: ' + calLinks[selectedDuration])}&location=Google+Meet`;
                 calGcal.href = gcalUrl;
             }
 
@@ -2083,7 +2119,7 @@ function initializeBookChatAnimation() {
             if (calOutlook) {
                 const outlookStartDate = `${year}-${month}-${day}T${String(h).padStart(2, '0')}:${mins}:00`;
                 const outlookEndDate = `${year}-${month}-${day}T${String(endH).padStart(2, '0')}:${String(endM).padStart(2, '0')}:00`;
-                const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent('Chat with Vishwajeet (' + name + ')')}&startdt=${encodeURIComponent(outlookStartDate)}&enddt=${encodeURIComponent(outlookEndDate)}&body=${encodeURIComponent('Topic: ' + notes + '\nHost: Vishwajeet\nGuest: ' + name + ' (' + email + ') Phone: ' + phone)}&location=Google+Meet`;
+                const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?subject=${encodeURIComponent(meetingName + ' (' + name + ')')}&startdt=${encodeURIComponent(outlookStartDate)}&enddt=${encodeURIComponent(outlookEndDate)}&body=${encodeURIComponent('Topic: ' + notes + '\nHost: Vishwajeet\nGuest: ' + name + ' (' + email + ') Phone: ' + phone + '\nCal.com link: ' + calLinks[selectedDuration])}&location=Google+Meet`;
                 calOutlook.href = outlookUrl;
             }
 
@@ -2104,8 +2140,8 @@ function initializeBookChatAnimation() {
                         `DTSTAMP:${nowIso}`,
                         `DTSTART:${startIso}`,
                         `DTEND:${endIso}`,
-                        `SUMMARY:Chat with Vishwajeet (${name})`,
-                        `DESCRIPTION:Meeting Topic: ${notes}\\nHost: Vishwajeet (vishwajeetsrk@gmail.com)\\nGuest: ${name} (${email}) Phone: ${phone}`,
+                        `SUMMARY:${meetingName} (${name})`,
+                        `DESCRIPTION:Meeting Topic: ${notes}\\nHost: Vishwajeet (vishwajeetsrk@gmail.com)\\nGuest: ${name} (${email}) Phone: ${phone}\\nCal.com: ${calLinks[selectedDuration]}`,
                         'LOCATION:Google Meet / Video Call',
                         'STATUS:CONFIRMED',
                         'END:VEVENT',
@@ -2122,20 +2158,27 @@ function initializeBookChatAnimation() {
                 };
             }
 
-            // 4. Send full booking payload to Vishwajeet
+            // 4. Update Cal.com badge link in success view
+            if (calSuccessDirectLink) {
+                calSuccessDirectLink.href = calLinks[selectedDuration];
+            }
+
+            // 5. Send full booking payload to Vishwajeet
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
                     access_key: 'ecc07fa5-6c70-4f51-bfa6-1e961fa6623d',
                     from_name: name,
-                    subject: `New Call Booked: ${name} on ${formatDayHeader(selectedDate)} at ${selectedSlot}`,
+                    subject: `New ${meetingName} Booked: ${name} on ${formatDayHeader(selectedDate)} at ${selectedSlot}`,
                     name: name,
                     email: email,
                     phone: phone,
+                    duration: `${selectedDuration} mins`,
                     meeting_date: formatFullDate(selectedDate),
                     meeting_time: `${selectedSlot} – ${endTimeStr}`,
                     notes: notes,
+                    cal_link: calLinks[selectedDuration],
                     type: 'Call Booking'
                 })
             }).catch(() => {});

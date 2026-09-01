@@ -1,7 +1,7 @@
 # Vishwajeet
 **AI Software Engineer | Full Stack Developer | AI Application Developer**  
 Bengaluru, Karnataka, India • [vishwajeetsrk@gmail.com](mailto:vishwajeetsrk@gmail.com)  
-[LinkedIn](https://www.linkedin.com/in/vishwajeetsrk/) • [GitHub](https://github.com/Vishwajeetsrk) • [Portfolio](https://vishwajeetsrk.github.io/) • [Learnify AI](https://www.learnifyai.in/)
+[LinkedIn](https://www.linkedin.com/in/vishwajeetsrk/) • [GitHub](https://github.com/Vishwajeetsrk) • [Cal.com](https://cal.com/vishwajeet-srk/30min) • [Portfolio](https://vishwajeetsrk.github.io/) • [Learnify AI](https://www.learnifyai.in/)
 
 ---
 

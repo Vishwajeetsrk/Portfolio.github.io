@@ -1095,6 +1095,19 @@
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
+                            <i class="far fa-calendar-check"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Book a Meeting (Cal.com)</h4>
+                            <p>
+                                <a href="https://cal.com/vishwajeet-srk/30min" target="_blank" rel="noopener noreferrer" class="contact-cal-link">30 Min Chat</a>
+                                <span class="contact-sep">•</span>
+                                <a href="https://cal.com/vishwajeet-srk/15min" target="_blank" rel="noopener noreferrer" class="contact-cal-link">15 Min Quick Chat</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
                             <i class="fab fa-linkedin"></i>
                         </div>
                         <div class="contact-details">
@@ -1219,9 +1232,14 @@
                         <h3 class="cal-event-title" id="calHostTitle">30 Min Chat</h3>
                     </div>
                     <div class="cal-meta-list">
-                        <div class="cal-meta-item">
-                            <i class="far fa-clock"></i>
-                            <span>30 mins</span>
+                        <!-- Duration Switcher: 30min vs 15min -->
+                        <div class="cal-duration-switcher" id="calDurationSwitcher">
+                            <button type="button" class="cal-duration-tab active" id="dur30Btn" data-duration="30" data-link="https://cal.com/vishwajeet-srk/30min">
+                                <i class="far fa-clock"></i> 30 mins
+                            </button>
+                            <button type="button" class="cal-duration-tab" id="dur15Btn" data-duration="15" data-link="https://cal.com/vishwajeet-srk/15min">
+                                <i class="far fa-clock"></i> 15 mins
+                            </button>
                         </div>
                         <div class="cal-meta-item">
                             <i class="fas fa-video"></i>
@@ -1236,9 +1254,14 @@
                             <span>Everyday: <strong>3:00 PM – 9:00 PM</strong></span>
                         </div>
                     </div>
-                    <p class="cal-event-desc">
+                    <p class="cal-event-desc" id="calEventDesc">
                         Let's connect 1-on-1 to discuss Generative AI SaaS, Autonomous Agents, Full-Stack development, or career roles.
                     </p>
+                    <a href="https://cal.com/vishwajeet-srk/30min" target="_blank" rel="noopener noreferrer" class="cal-direct-link" id="calDirectLink">
+                        <i class="far fa-calendar-check"></i>
+                        <span>Open on Cal.com</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.72rem;"></i>
+                    </a>
                 </div>
 
                 <!-- Center: Interactive Calendar -->
@@ -1387,6 +1410,10 @@
                             <i class="far fa-calendar-alt"></i>
                             <span>ICS file</span>
                         </button>
+                        <a href="https://cal.com/vishwajeet-srk/30min" target="_blank" id="calSuccessDirectLink" class="cal-cal-button calcom-badge" rel="noopener noreferrer">
+                            <i class="far fa-calendar-check"></i>
+                            <span>Cal.com</span>
+                        </a>
                     </div>
                 </div>
 

@@ -4147,3 +4147,121 @@ body:not(.dark-mode) .cal-change-footer {
     }
 }
 
+/* ===================================
+   CAL.COM DURATION SWITCHER & DIRECT LINKS
+   =================================== */
+.cal-duration-switcher {
+    display: flex;
+    gap: 0.35rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.25rem;
+    border-radius: 0.6rem;
+    margin-bottom: 0.35rem;
+}
+
+body:not(.dark-mode) .cal-duration-switcher {
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.cal-duration-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.5rem;
+    border-radius: 0.45rem;
+    border: none;
+    background: transparent;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.cal-duration-tab:hover {
+    color: #ffffff;
+}
+
+body:not(.dark-mode) .cal-duration-tab:hover {
+    color: #0f172a;
+}
+
+.cal-duration-tab.active {
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+body:not(.dark-mode) .cal-duration-tab.active {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.cal-direct-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #38bdf8;
+    text-decoration: none;
+    padding: 0.45rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    background: rgba(56, 189, 248, 0.08);
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.cal-direct-link:hover {
+    background: rgba(56, 189, 248, 0.18);
+    border-color: #38bdf8;
+    transform: translateY(-1px);
+}
+
+.contact-cal-link {
+    color: #38bdf8;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.contact-cal-link:hover {
+    color: #7dd3fc;
+}
+
+.contact-sep {
+    color: #64748b;
+    margin: 0 0.35rem;
+}
+
+.cal-cal-button.calcom-badge {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cal-cal-button.calcom-badge:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+body:not(.dark-mode) .cal-cal-button.calcom-badge {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+}
+
+body:not(.dark-mode) .cal-cal-button.calcom-badge:hover {
+    background: #1e293b;
+    color: #ffffff;
+}
+

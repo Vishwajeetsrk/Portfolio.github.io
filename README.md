@@ -309,6 +309,8 @@ To run the portfolio locally:
 ## 📬 Contact & Connect
 
 - **Portfolio:** [vishwajeetsrk.github.io](https://vishwajeetsrk.github.io/)
+- **Book 30 Min Meeting (Cal.com):** [cal.com/vishwajeet-srk/30min](https://cal.com/vishwajeet-srk/30min)
+- **Book 15 Min Quick Chat (Cal.com):** [cal.com/vishwajeet-srk/15min](https://cal.com/vishwajeet-srk/15min)
 - **Email:** [vishwajeetsrk@gmail.com](mailto:vishwajeetsrk@gmail.com)
 - **LinkedIn:** [linkedin.com/in/vishwajeetsrk](https://www.linkedin.com/in/vishwajeetsrk/)
 - **GitHub:** [github.com/Vishwajeetsrk](https://github.com/Vishwajeetsrk)
