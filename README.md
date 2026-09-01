@@ -12,7 +12,19 @@
 
 **A state-of-the-art, high-performance personal portfolio, executive resume, and open-source UI design system showcasing cutting-edge Aceternity UI animations converted into lightweight, zero-dependency Vanilla HTML5, CSS3, and JavaScript.**
 
-[Explore Live Demo](https://vishwajeetsrk.github.io/) • [Projects Gallery](#-live-projects-visual-gallery) • [Detailed Project Showcases](#-detailed-project-showcases) • [UI Component Library](#-ui-animation--components-library) • [Local Setup](#-local-setup--quickstart)
+[Explore Live Demo](https://vishwajeetsrk.github.io/) • [Portfolio Demo](#-interactive-portfolio-demo-walkthrough) • [Projects Gallery](#-live-projects-visual-gallery) • [Detailed Project Showcases](#-detailed-project-showcases) • [UI Component Library](#-ui-animation--components-library)
+
+</div>
+
+---
+
+## 🎬 Interactive Portfolio Demo Walkthrough
+
+<div align="center">
+
+[![Vishwajeet Portfolio Live Demo Showcase](assets/portfolio-demo.gif)](https://vishwajeetsrk.github.io/)
+
+<sub>Live screen recording showcasing Aceternity UI components, floating product menus, responsive layout, and native Cal.com booking modal.</sub>
 
 </div>
 
@@ -71,9 +83,16 @@ Click on any project GIF or link below to launch the live production deployment:
 
 ### 1. Learnify AI — Multi-Modal AI Learning & Career SaaS
 
-> **Live Platform:** [https://www.learnifyai.in/](https://www.learnifyai.in/) • **GitHub:** [Vishwajeetsrk/learnifyai](https://github.com/Vishwajeetsrk/learnifyai)
+> **Live Platform:** [https://www.learnifyai.in/](https://www.learnifyai.in/) • **GitHub:** [Vishwajeetsrk/learnifyai](https://github.com/Vishwajeetsrk/learnifyai) • **Video Walkthrough:** [Download / Play MP4 Video](assets/videos/learnify-ai-demo.mp4)
 
 [![Learnify AI Platform Full Demo](assets/projects/learnify-ai.gif)](https://www.learnifyai.in/)
+
+#### 🎥 Full Production Video Walkthrough
+<div align="center">
+  <video src="assets/videos/learnify-ai-demo.mp4" controls="controls" width="100%" poster="assets/projects/learnify-ai.gif">
+    <p>Your browser does not support HTML5 video playback. <a href="assets/videos/learnify-ai-demo.mp4">Click here to download and view the full Learnify AI MP4 demo</a>.</p>
+  </video>
+</div>
 
 - **Overview:** End-to-end full-stack AI SaaS platform unifying multi-modal AI tutoring, personalized career roadmapping, AI resume builder, ATS compatibility analyzer, creator publishing tools, and community peer learning.
 - **Tech Stack:** React 19, TypeScript, Tailwind CSS, Supabase, OpenRouter API, Cashfree Payment Gateway.
