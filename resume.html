@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishwajeet | AI Software Engineer & Full Stack Developer - Resume</title>
+    <meta name="description" content="Resume of Vishwajeet - AI Software Engineer, Full Stack Developer, and Data Operations Specialist.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --accent: #6366f1;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --tag-bg: #f1f5f9;
+            --tag-text: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Action Bar for Web View */
+        .action-bar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 960px;
+            margin: 0 auto 24px;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05);
+        }
+
+        .action-bar .brand {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-bar .brand span {
+            color: var(--primary);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--tag-bg);
+            color: var(--text-main);
+        }
+
+        /* Resume Paper Container */
+        .resume-container {
+            max-width: 920px;
+            margin: 0 auto 48px;
+            background: var(--bg-card);
+            padding: 48px 56px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.07);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Header Section */
+        .resume-header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 24px;
+            margin-bottom: 24px;
+        }
+
+        .header-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        h1.name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+        }
+
+        .headline {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 4px;
+            margin-bottom: 12px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 20px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .contact-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.15s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #1e293b;
+            border-bottom: 1.5px solid #cbd5e1;
+            padding-bottom: 4px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .summary-text {
+            font-size: 0.92rem;
+            color: #334155;
+            line-height: 1.65;
+            text-align: justify;
+        }
+
+        /* Skills Grid */
+        .skills-table {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 8px 16px;
+            font-size: 0.88rem;
+        }
+
+        .skill-group-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .skill-group-items {
+            color: #334155;
+        }
+
+        /* Experience & Projects Entries */
+        .entry-item {
+            margin-bottom: 18px;
+            page-break-inside: avoid;
+        }
+
+        .entry-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 4px;
+        }
+
+        .entry-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .entry-title a {
+            color: #0f172a;
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .entry-title a:hover {
+            color: var(--primary);
+        }
+
+        .entry-subtitle {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .entry-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .entry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 5px 0 8px 0;
+        }
+
+        .tech-pill {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .entry-links {
+            display: inline-flex;
+            gap: 12px;
+            font-size: 0.82rem;
+            margin-left: 8px;
+        }
+
+        .entry-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .entry-links a:hover {
+            text-decoration: underline;
+        }
+
+        ul.bullet-list {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-top: 4px;
+        }
+
+        ul.bullet-list li {
+            font-size: 0.88rem;
+            color: #334155;
+            margin-bottom: 4px;
+            line-height: 1.5;
+        }
+
+        ul.bullet-list li strong {
+            color: #0f172a;
+        }
+
+        /* Education & Certs Grid */
+        .edu-cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            font-size: 0.86rem;
+            color: #334155;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .cert-list li i {
+            color: var(--primary);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .cert-list a {
+            color: #1e293b;
+            text-decoration: none;
+        }
+
+        .cert-list a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .cert-meta {
+            color: var(--text-light);
+            font-size: 0.78rem;
+        }
+
+        /* Print Optimization */
+        @media print {
+            body {
+                background: #ffffff;
+                color: #000000;
+                font-size: 9.5pt;
+            }
+
+            .action-bar {
+                display: none !important;
+            }
+
+            .resume-container {
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+                border: none;
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .section-title {
+                border-bottom: 1.5px solid #000;
+                color: #000;
+            }
+
+            .headline, .entry-subtitle, .section-title i {
+                color: #1d4ed8;
+            }
+
+            .tech-pill {
+                border: 1px solid #cbd5e1;
+                background: #f8fafc;
+                color: #0f172a;
+            }
+
+            .entry-item {
+                page-break-inside: avoid;
+            }
+
+            @page {
+                margin: 1.2cm;
+                size: A4 portrait;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 28px 20px;
+                margin: 0 12px 24px;
+            }
+            .skills-table {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            .edu-cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .action-bar {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Web Toolbar -->
+    <div class="action-bar">
+        <div class="brand">
+            <i class="fas fa-terminal"></i>
+            <span>Vishwajeet</span> | Executive Resume
+        </div>
+        <div class="action-buttons">
+            <a href="index.html" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Portfolio
+            </a>
+            <button onclick="window.print()" class="btn btn-primary">
+                <i class="fas fa-print"></i> Print / Save as PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- Resume Document Body -->
+    <div class="resume-container">
+        <!-- Header -->
+        <header class="resume-header">
+            <div class="header-title-row">
+                <h1 class="name">VISHWAJEET</h1>
+                <div class="contact-links">
+                    <span><i class="fas fa-map-marker-alt"></i> Bengaluru, Karnataka, India</span>
+                    <span><i class="fas fa-phone"></i> +91 85952 02922</span>
+                    <a href="mailto:vishwajeetsrk@gmail.com"><i class="fas fa-envelope"></i> vishwajeetsrk@gmail.com</a>
+                </div>
+            </div>
+            <div class="headline">AI Software Engineer | Full Stack Developer | AI Application Developer</div>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/vishwajeetsrk/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/vishwajeetsrk</a>
+                <a href="https://github.com/Vishwajeetsrk" target="_blank"><i class="fab fa-github"></i> github.com/Vishwajeetsrk</a>
+                <a href="https://vishwajeetsrk.github.io/" target="_blank"><i class="fas fa-globe"></i> vishwajeetsrk.github.io</a>
+                <a href="https://www.learnifyai.in/" target="_blank"><i class="fas fa-graduation-cap"></i> learnifyai.in</a>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-user"></i> Professional Summary</h2>
+            <p class="summary-text">
+                Results-oriented <strong>AI Software Engineer</strong> and <strong>Full Stack Developer</strong> with a demonstrated track record of architecting, deploying, and scaling AI-powered SaaS platforms, agentic systems, and full-stack web applications. Proficient in <strong>React 19, Next.js, TypeScript, Node.js, Express, PostgreSQL, Supabase, and Generative AI (LLM APIs, OpenRouter, Google Gemini, CrewAI)</strong>. Creator of multi-tenant production systems including <strong>Learnify AI</strong> (AI tutoring & career suite), <strong>DreamSync</strong> (ATS intelligence), and <strong>Luxury Laundry</strong> (real-time SaaS). Experienced in enterprise data operations, having audited and cleansed <strong>200,000+ records</strong>, resolving 50+ monthly discrepancies with a <strong>30% accuracy improvement</strong>. Graduated BCA with <strong>First Class Exemplary (8.1 CGPA / 9.06 SGPA)</strong>.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+            <div class="skills-table">
+                <div class="skill-group-name">Languages</div>
+                <div class="skill-group-items">Python, TypeScript, JavaScript (ES6+), SQL, HTML5, CSS3, Java, PHP, C++</div>
+
+                <div class="skill-group-name">Frontend</div>
+                <div class="skill-group-items">React 19, Next.js (App Router), TypeScript, Tailwind CSS, Framer Motion, Responsive UI/UX</div>
+
+                <div class="skill-group-name">Backend & Realtime</div>
+                <div class="skill-group-items">Node.js, Express.js, RESTful APIs, WebSockets (Socket.io), Middleware & Authentication</div>
+
+                <div class="skill-group-name">Databases & Caching</div>
+                <div class="skill-group-items">PostgreSQL, MySQL, Supabase, Firebase, MongoDB, Prisma ORM, Upstash Redis</div>
+
+                <div class="skill-group-name">AI & Agentic Systems</div>
+                <div class="skill-group-items">Generative AI, LLM Integration (OpenRouter, Gemini, OpenAI, Claude), CrewAI Multi-Agent Systems, Prompt Engineering</div>
+
+                <div class="skill-group-name">Cloud & Operations</div>
+                <div class="skill-group-items">Vercel, Render, Cloudflare, Cloudinary, Git, GitHub Actions, Cashfree Gateway, Razorpay</div>
+
+                <div class="skill-group-name">Data & CRM Tools</div>
+                <div class="skill-group-items">Microsoft Excel (Advanced/Power Query), Power BI, Salesforce CRM, Salesforce Data Loader, Data Reconciliation</div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-layer-group"></i> Featured AI & Full Stack Projects</h2>
+
+            <!-- Learnify AI -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title"><a href="https://www.learnifyai.in/" target="_blank">Learnify AI — AI-Powered Learning & Career Platform</a></span>
+                        <span class="entry-links">
+                            [<a href="https://www.learnifyai.in/" target="_blank">Live App</a>]
+                            [<a href="https://github.com/Vishwajeetsrk/learnifyai" target="_blank">GitHub</a>]
+                            [<a href="https://www.learnifyai.in/p/vishwajeetsrk" target="_blank">Public Portfolio</a>]
+                        </span>
+                    </div>
+                    <span class="entry-date">May 2026 – Present</span>
+                </div>
+                <div class="entry-tags">
+                    <span class="tech-pill">React 19</span>
+                    <span class="tech-pill">TypeScript</span>
+                    <span class="tech-pill">Tailwind CSS</span>
+                    <span class="tech-pill">Supabase</span>
+                    <span class="tech-pill">OpenRouter API</span>
+                    <span class="tech-pill">Cashfree</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Architected and launched an end-to-end full-stack AI platform unifying <strong>AI tutoring, career guidance, creator tools, and gamified community learning</strong>.</li>
+                    <li>Integrated multi-model LLM workflows via <strong>OpenRouter</strong> for autonomous career path mapping, personalized concept coaching, and interactive assessments.</li>
+                    <li>Engineered career acceleration tooling including an <strong>AI Resume Builder, ATS Compatibility Scanner, and LinkedIn Optimizer</strong>.</li>
+                    <li>Built secure relational database models, authentication, and real-time state with <strong>Supabase</strong>; integrated <strong>Cashfree Payment Gateway</strong> for seamless monetization.</li>
+                </ul>
+            </div>
+
+            <!-- DreamSync -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title"><a href="https://dream-sync-nine.vercel.app/" target="_blank">DreamSync — AI Career Intelligence & ATS Scoring Platform</a></span>
+                        <span class="entry-links">
+                            [<a href="https://dream-sync-nine.vercel.app/" target="_blank">Live App</a>]
+                            [<a href="https://github.com/Vishwajeetsrk/dreamssync_test" target="_blank">GitHub</a>]
+                        </span>
+                    </div>
+                    <span class="entry-date">Feb 2026 – Apr 2026</span>
+                </div>
+                <div class="entry-tags">
+                    <span class="tech-pill">Next.js</span>
+                    <span class="tech-pill">React</span>
+                    <span class="tech-pill">Tailwind CSS</span>
+                    <span class="tech-pill">Firebase</span>
+                    <span class="tech-pill">Google Gemini</span>
+                    <span class="tech-pill">Upstash Redis</span>
+                    <span class="tech-pill">Framer Motion</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Designed and engineered an AI-powered career intelligence suite featuring <strong>ATS analysis, resume enhancement, LinkedIn profile scoring, and dynamic portfolio generation</strong>.</li>
+                    <li>Leveraged <strong>OpenRouter and Google Gemini APIs</strong> to deliver automated keyword gap detection and contextual bullet point improvements.</li>
+                    <li>Implemented caching and low-latency rate limiting with <strong>Upstash Redis</strong> to safeguard API quotas and ensure fluid user response times.</li>
+                </ul>
+            </div>
+
+            <!-- Luxury Laundry -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title"><a href="https://luxurylaundry.vercel.app/" target="_blank">Luxury Laundry — Real-Time SaaS Laundry Management</a></span>
+                        <span class="entry-links">
+                            [<a href="https://luxurylaundry.vercel.app/" target="_blank">Live App</a>]
+                            [<a href="https://github.com/Vishwajeetsrk/LUXURY-LAUNDRY" target="_blank">GitHub</a>]
+                        </span>
+                    </div>
+                    <span class="entry-date">Apr 2026 – May 2026</span>
+                </div>
+                <div class="entry-tags">
+                    <span class="tech-pill">Next.js</span>
+                    <span class="tech-pill">Express.js</span>
+                    <span class="tech-pill">PostgreSQL</span>
+                    <span class="tech-pill">Prisma ORM</span>
+                    <span class="tech-pill">Socket.io</span>
+                    <span class="tech-pill">Tailwind CSS</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Developed an end-to-end laundry management SaaS featuring synchronized customer booking portals and administrative dashboards.</li>
+                    <li>Implemented real-time bidirectional order updates, status notifications, and live tracking using <strong>Socket.io</strong>.</li>
+                    <li>Constructed relational data pipelines and strict schema constraints utilizing <strong>PostgreSQL and Prisma ORM</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- JARVIS AI OS -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title"><a href="https://jarvisaios.vercel.app/" target="_blank">JARVIS AI OS — Autonomous Agentic Desktop System</a></span>
+                        <span class="entry-links">
+                            [<a href="https://jarvisaios.vercel.app/" target="_blank">Live App</a>]
+                            [<a href="https://github.com/Vishwajeetsrk/JARVIS-AI-OS" target="_blank">GitHub</a>]
+                        </span>
+                    </div>
+                    <span class="entry-date">Agentic Architecture</span>
+                </div>
+                <div class="entry-tags">
+                    <span class="tech-pill">JavaScript</span>
+                    <span class="tech-pill">AI Agents</span>
+                    <span class="tech-pill">Voice AI</span>
+                    <span class="tech-pill">Semantic Memory</span>
+                    <span class="tech-pill">Tauri</span>
+                    <span class="tech-pill">PWA</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Architected an AI operating system exploring persistent conversational memory, multi-agent task execution, and integrated voice AI capabilities.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+
+            <!-- Rootbridge Data Management -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Rootbridge Academy Pvt. Ltd.</span> — <span class="entry-subtitle">Reconciliation & Data Management Specialist</span>
+                    </div>
+                    <span class="entry-date">Dec 2024 – Present | Bengaluru</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Processed, cleansed, and reconciled <strong>200,000+ enterprise records</strong> across operational, donor, and financial databases.</li>
+                    <li>Resolved <strong>50+ recurring monthly data discrepancies</strong> through systematic root-cause analysis and automated validation workflows.</li>
+                    <li>Delivered a <strong>30% improvement in reported data accuracy</strong>, directly improving operational reporting and institutional audit readiness.</li>
+                    <li>Integrated workflows between <strong>Microsoft Excel (Power Query, VLOOKUP, INDEX-MATCH)</strong>, <strong>Salesforce CRM</strong>, and <strong>Salesforce Data Loader</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- Sorting Hat / Unacademy -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Sorting Hat Technologies (Unacademy)</span> — <span class="entry-subtitle">Social Media & Automation Intern</span>
+                    </div>
+                    <span class="entry-date">Feb 2026 – Mar 2026 | Bengaluru</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Developed custom <strong>Python automation routines</strong> to streamline content metadata tagging, playlist management, and video ingestion on Atlas.</li>
+                    <li>Designed high-engagement thumbnails and optimized SEO metadata, boosting click-through rates across educational playlists.</li>
+                </ul>
+            </div>
+
+            <!-- ISM UNIV -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">ISM UNIV (Indian Service Machine)</span> — <span class="entry-subtitle">Full Stack Development Intern</span>
+                    </div>
+                    <span class="entry-date">Mar 2026 – Apr 2026 | Bengaluru</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Developed full-stack web features, modular frontend UI components, and integrated backend REST APIs.</li>
+                    <li>Conducted cross-browser performance testing, resolved UI bugs, and improved component load performance.</li>
+                </ul>
+            </div>
+
+            <!-- Rootbridge Fundraiser -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Rootbridge Academy Pvt. Ltd.</span> — <span class="entry-subtitle">Fundraiser & Stakeholder Outreach</span>
+                    </div>
+                    <span class="entry-date">Apr 2024 – Nov 2024 | Bengaluru</span>
+                </div>
+                <ul class="bullet-list">
+                    <li>Engaged key stakeholders and communicated educational missions, consistently meeting quarterly organizational outreach and fundraising goals.</li>
+                </ul>
+            </div>
+
+            <!-- Earlier Experience Summary -->
+            <div class="entry-item">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Additional Professional Engagements</span>
+                    </div>
+                    <span class="entry-date">2023 – 2024</span>
+                </div>
+                <ul class="bullet-list">
+                    <li><strong>WeLive Foundation</strong> (Social Media Designer, Feb–Mar 2024): Produced brand creatives using Canva; maintained WordPress articles.</li>
+                    <li><strong>TeamLease Services Limited</strong> (Relationship Executive, Jun–Dec 2023): Managed client onboarding, communications, and account relationships.</li>
+                    <li><strong>ViewMyRecords Pvt. Ltd.</strong> (Employee Data Uploader, Jan–Apr 2023): Handled secure, high-volume database uploads with 99%+ accuracy.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education & Honors</h2>
+            <div class="edu-cert-grid">
+                <div>
+                    <div class="entry-item">
+                        <div class="entry-title">Bachelor of Computer Applications (BCA)</div>
+                        <div class="entry-subtitle">St. Aloysius Degree College, Bengaluru North University</div>
+                        <div class="entry-date">2023 – 2026 | First Class Exemplary</div>
+                        <ul class="bullet-list">
+                            <li><strong>Overall CGPA: 8.1 / 10</strong> | <strong>6th Sem SGPA: 9.06 / 10 (89.57%)</strong></li>
+                            <li>Capstone Project Work: <strong>148/150</strong> | Final Internship: <strong>99/100</strong></li>
+                            <li>Web CMS: <strong>96/100</strong> | AI & Applications: <strong>86/100</strong></li>
+                        </ul>
+                    </div>
+                    <div class="entry-item" style="margin-top: 10px;">
+                        <div class="entry-title">Diploma in Software Development</div>
+                        <div class="entry-subtitle">Oxford Software Institute, New Delhi</div>
+                        <div class="entry-date">2022 – 2023 | Grade A</div>
+                        <div style="font-size: 0.82rem; color: #475569; margin-top: 2px;">C, C++, Core Java, Advanced Python, HTML5, CSS3, JavaScript</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="entry-title" style="margin-bottom: 6px;">Key Certifications & Awards</div>
+                    <ul class="cert-list">
+                        <li>
+                            <i class="fas fa-trophy" style="color: #eab308;"></i>
+                            <div>
+                                <strong>1st Prize — Web Design Competition</strong>
+                                <div class="cert-meta">NEURO2026, Charan's Degree College (Apr 2026)</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-robot"></i>
+                            <div>
+                                <a href="https://courses.analyticsvidhya.com/certificates/owpzuxfeya" target="_blank"><strong>Resume Review Agentic System with CrewAI</strong></a>
+                                <div class="cert-meta">Analytics Vidhya | ID: owpzuxfeya</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <a href="https://www.linkedin.com/learning/certificates/ef67d1b71505633566abc16a3a1dd32456a54b8c6a7c702e6a3d16ab45bfd267" target="_blank"><strong>AI Pair Programming with GitHub Copilot</strong></a>
+                                <div class="cert-meta">LinkedIn Learning</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-pie"></i>
+                            <div>
+                                <a href="https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_m3LEh744cwEtvav5p_1761740174163_completion_certificate.pdf" target="_blank"><strong>Tata — GenAI Powered Data Analytics</strong></a>
+                                <div class="cert-meta">Forage | ID: 7S7RXn9dQLKQr2x76</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-chart-bar"></i>
+                            <div>
+                                <strong>Power BI for Data Analysts</strong>
+                                <div class="cert-meta">Microsoft Press / LinkedIn Learning</div>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-table"></i>
+                            <div>
+                                <a href="https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzNzQ4IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvOTgyMDM3MF85OTgzNTM1XzE3NzA1NzY4NDc0MDUucG5nIiwidXNlcm5hbWUiOiJWaXNod2FqZWV0In0%3D" target="_blank"><strong>Google Sheets Professional</strong></a>
+                                <div class="cert-meta">Simplilearn | ID: 9820370</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

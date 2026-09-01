@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Vishwajeet - Data-Driven Innovator | AI & Web Developer | Creative Technologist">
-    <meta name="keywords" content="Data Analytics, AI, Web Development, Portfolio, Vishwajeet">
-    <title>Vishwajeet | Portfolio</title>
+        content="Vishwajeet - AI Software Engineer | Full Stack Developer | AI Application Developer | Data Analytics">
+    <meta name="keywords" content="AI Software Engineer, Full Stack Developer, React 19, Next.js, TypeScript, Generative AI, LLM, Python, Vishwajeet">
+    <title>Vishwajeet | AI Software Engineer & Full Stack Developer</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
 
@@ -30,14 +30,129 @@
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
+                <li class="nav-item-dropdown">
+                    <a href="#about" class="nav-link">About <i class="fas fa-chevron-down nav-arrow"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <div class="dropdown-content-simple">
+                            <a href="#about" class="hovered-link">
+                                <i class="fas fa-user-circle"></i>
+                                <div>
+                                    <div class="hovered-link-title">About Me</div>
+                                    <div class="hovered-link-desc">Background, education & core philosophy</div>
+                                </div>
+                            </a>
+                            <a href="#experience" class="hovered-link">
+                                <i class="fas fa-briefcase"></i>
+                                <div>
+                                    <div class="hovered-link-title">Experience</div>
+                                    <div class="hovered-link-desc">Rootbridge, Unacademy & career timeline</div>
+                                </div>
+                            </a>
+                            <a href="#education" class="hovered-link">
+                                <i class="fas fa-graduation-cap"></i>
+                                <div>
+                                    <div class="hovered-link-title">Education</div>
+                                    <div class="hovered-link-desc">BCA Exemplary (8.1 CGPA) & certifications</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item-dropdown">
+                    <a href="#skills" class="nav-link">Skills <i class="fas fa-chevron-down nav-arrow"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <div class="dropdown-content-simple">
+                            <a href="#skills" class="hovered-link">
+                                <i class="fas fa-brain"></i>
+                                <div>
+                                    <div class="hovered-link-title">Generative AI & LLMs</div>
+                                    <div class="hovered-link-desc">Autonomous AI agents, LangChain, Gemini API</div>
+                                </div>
+                            </a>
+                            <a href="#skills" class="hovered-link">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <div class="hovered-link-title">Full Stack Systems</div>
+                                    <div class="hovered-link-desc">React 19, Next.js, Node.js, TypeScript</div>
+                                </div>
+                            </a>
+                            <a href="#skills" class="hovered-link">
+                                <i class="fas fa-database"></i>
+                                <div>
+                                    <div class="hovered-link-title">Enterprise Data Ops</div>
+                                    <div class="hovered-link-desc">200K+ reconciliation, Power Query & SQL</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item-dropdown nav-item-projects">
+                    <a href="#projects" class="nav-link">Projects <i class="fas fa-chevron-down nav-arrow"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <div class="dropdown-content-grid">
+                            <a href="https://www.learnifyai.in/" target="_blank" class="product-item">
+                                <div class="product-icon-wrap" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4 class="product-title">Learnify AI</h4>
+                                    <p class="product-desc">AI tutoring, resume builder & career roadmapping SaaS.</p>
+                                </div>
+                            </a>
+                            <a href="https://dream-sync-nine.vercel.app/" target="_blank" class="product-item">
+                                <div class="product-icon-wrap" style="background: linear-gradient(135deg, #38bdf8, #6366f1);">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4 class="product-title">DreamSync</h4>
+                                    <p class="product-desc">AI career intelligence & ATS resume verification suite.</p>
+                                </div>
+                            </a>
+                            <a href="https://luxurylaundry.vercel.app/" target="_blank" class="product-item">
+                                <div class="product-icon-wrap" style="background: linear-gradient(135deg, #10b981, #06b6d4);">
+                                    <i class="fas fa-tshirt"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4 class="product-title">Luxury Laundry</h4>
+                                    <p class="product-desc">Real-time on-demand order tracking & WebSocket dispatch.</p>
+                                </div>
+                            </a>
+                            <a href="https://jarvisaios.vercel.app/" target="_blank" class="product-item">
+                                <div class="product-icon-wrap" style="background: linear-gradient(135deg, #f59e0b, #ec4899);">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <div class="product-info">
+                                    <h4 class="product-title">JARVIS AI OS</h4>
+                                    <p class="product-desc">Agentic desktop OS with voice intelligence & recall.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="resume.html" class="nav-link" target="_blank">Resume <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i></a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="mobile-drawer-chat-item">
+                    <button type="button" class="book-chat-btn mobile-drawer-btn" id="mobileDrawerChatBtn" aria-label="Chat with Vishwajeet">
+                        <i class="far fa-calendar-check"></i>
+                        <span>Chat with Vishwajeet</span>
+                    </button>
+                </li>
             </ul>  
             <div class="nav-actions">
+                <button type="button" class="book-chat-btn nav-book-chat-btn" id="navChatBtn" aria-label="Chat with Vishwajeet">
+                    <div class="book-chat-box" data-slot="button-box">
+                        <div class="book-chat-dots">
+                            <div class="dots-row"><span class="dot dim"></span><span class="dot dim"></span><span class="dot lit"></span><span class="dot dim"></span><span class="dot dim"></span></div>
+                            <div class="dots-row"><span class="dot dim"></span><span class="dot dim"></span><span class="dot dim"></span><span class="dot lit"></span><span class="dot dim"></span></div>
+                            <div class="dots-row"><span class="dot lit"></span><span class="dot lit"></span><span class="dot lit"></span><span class="dot lit"></span><span class="dot lit"></span></div>
+                            <div class="dots-row"><span class="dot dim"></span><span class="dot dim"></span><span class="dot dim"></span><span class="dot lit"></span><span class="dot dim"></span></div>
+                            <div class="dots-row"><span class="dot dim"></span><span class="dot dim"></span><span class="dot lit"></span><span class="dot dim"></span><span class="dot dim"></span></div>
+                        </div>
+                        <img class="book-chat-avatar" src="assets/pro2 bg remove.png" alt="Vishwajeet" />
+                    </div>
+                    <div class="book-chat-shine"></div>
+                    <span class="book-chat-label">Chat with Vishwajeet</span>
+                </button>
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -48,26 +163,56 @@
         </div>
     </nav>
 
-    <section class="hero" id="home">
+    <section class="hero hero-highlight" id="home">
+        <div class="hero-dot-pattern default-dots"></div>
+        <div class="hero-dot-pattern hover-dots"></div>
         <div id="particles-js"></div>
         <div class="hero-content">
             <div class="hero-text">
+                <div class="hero-status-pill-wrap">
+                    <a href="#contact" class="hover-border-gradient hero-status-pill" data-duration="1">
+                        <span class="hbg-content">
+                            <span class="hbg-dot"></span>
+                            <span class="hbg-text">Available for AI Engineering Opportunities</span>
+                            <i class="fas fa-arrow-right hbg-arrow"></i>
+                        </span>
+                    </a>
+                </div>
                 <h1 class="hero-title">
-                    Hi, I'm <span class="highlight">Vishwajeet</span>
+                    Hi, I'm <span class="cover-badge" title="Hover for warp speed"><span class="cover-text">Vishwajeet</span><span class="cover-corner top-left"></span><span class="cover-corner top-right"></span><span class="cover-corner bottom-left"></span><span class="cover-corner bottom-right"></span><canvas class="cover-sparkles"></canvas><div class="cover-beams"></div></span>
                 </h1>
-                <p class="hero-subtitle">Data-Driven Innovator | AI & Web Developer | Creative Technologist</p>
+                <p class="hero-subtitle">
+                    <span class="container-text-flip subtitle-flip" data-words='["AI Software Engineer", "Full Stack Developer", "AI Application Developer"]'><span class="flip-text-inner">AI Software Engineer</span></span>
+                </p>
                 <p class="hero-description">
-                    Transforming data into actionable insights and building innovative digital solutions
+                    Architecting production-ready <span class="colourful-text" data-text="AI SaaS platforms">AI SaaS platforms</span>, agentic workflows, and high-performance web systems with React 19, Next.js, TypeScript, and modern LLM APIs.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Get In Touch
+                    <button type="button" class="book-chat-btn hero-book-chat-btn" id="heroChatBtn" aria-label="Book a Call / Chat with Vishwajeet">
+                        <div class="book-chat-box" data-slot="button-box">
+                            <div class="book-chat-dots">
+                                <div class="dots-row"><span class="dot dim"></span><span class="dot dim"></span><span class="dot lit"></span><span class="dot dim"></span><span class="dot dim"></span></div>
+                                <div class="dots-row"><span class="dot dim"></span><span class="dot dim"></span><span class="dot dim"></span><span class="dot lit"></span><span class="dot dim"></span></div>
+                                <div class="dots-row"><span class="dot lit"></span><span class="dot lit"></span><span class="dot lit"></span><span class="dot lit"></span><span class="dot lit"></span></div>
+                                <div class="dots-row"><span class="dot dim"></span><span class="dot dim"></span><span class="dot dim"></span><span class="dot lit"></span><span class="dot dim"></span></div>
+                                <div class="dots-row"><span class="dot dim"></span><span class="dot dim"></span><span class="dot lit"></span><span class="dot dim"></span><span class="dot dim"></span></div>
+                            </div>
+                            <img class="book-chat-avatar" src="assets/pro2 bg remove.png" alt="Vishwajeet" />
+                        </div>
+                        <div class="book-chat-shine"></div>
+                        <span class="book-chat-label">Chat with Vishwajeet</span>
+                    </button>
+                    <a href="#projects" class="hover-border-gradient hbg-btn hbg-btn-secondary" data-duration="1.2">
+                        <span class="hbg-content">
+                            <i class="fas fa-folder-open"></i>
+                            <span>View Projects</span>
+                        </span>
                     </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        <i class="fas fa-folder-open"></i> View Projects
-                    </a>
-                    <a href="assets\Vishwajeet_Resume.pdf" class="btn btn-third">
-    <i class="fas fa-file-pdf"></i> View Resume 
+                    <a href="resume.html" target="_blank" class="hover-border-gradient hbg-btn hbg-btn-third" data-duration="1.2">
+                        <span class="hbg-content">
+                            <i class="fas fa-file-alt"></i>
+                            <span>View Resume</span>
+                        </span>
                     </a>
                 </div>
 
@@ -94,50 +239,43 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title">About <span class="colourful-text" data-text="Me">Me</span></h2>
                 <p class="section-subtitle">Get to know more about my background and expertise</p>
             </div>
 
             <div class="about-content">
                 <div class="about-image">
                     <div class="avatar-wrapper">
-                        <img src="assets\pro2 bg remove.png" alt="Vishwajeet" class="avatar-image">
+                        <img src="assets/pro2 bg remove.png" alt="Vishwajeet" class="avatar-image">
 
                         <div class="avatar-badge verified">
                             <i class="fas fa-check-circle"></i> Data Verified
                         </div>
                         <div class="avatar-badge dev">
-                            <i class="fas fa-code"></i> Dev Mode
+                            <i class="fas fa-code"></i> AI & Full Stack
                         </div>
                     </div>
                 </div>
 
                 <div class="about-text">
-                    <h3>Data-Driven Professional from Bengaluru</h3>
                     <p>
-                        Currently pursuing <strong>BCA (3rd year)</strong> at St. Aloysius Degree College, I'm a
-                        data-driven professional with hands-on experience in reconciliation, data management, and
-                        automation. At Rootbridge, I process and validate 1,000+ data records daily using Excel and
-                        Salesforce, ensuring accuracy, efficiency, and confidentiality across operations.
+                        BCA Graduate with <span class="pointer-highlight highlight-amber" data-badge="Exemplary"><span class="ph-text">First Class Exemplary (8.1 CGPA)</span></span> from St. Aloysius Degree College (Bengaluru North University). I specialize in architecting scalable AI SaaS platforms, autonomous agentic systems, and modern full-stack web applications using React 19, Next.js, TypeScript, Node.js, and cutting-edge LLM APIs.
                     </p>
                     <p>
-                        I combine academic knowledge with real-world data solutions, skilled in data cleaning, process
-                        optimization, and technical troubleshooting. My passion lies in <strong>AI-driven
-                            automation</strong> and <strong>full-stack development</strong>, focused on building smarter
-                        workflows that connect technology with business impact.
+                        At Rootbridge, I have audited, cleansed, and reconciled <span class="pointer-highlight highlight-blue" data-badge="200K+ Scale"><span class="ph-text">200,000+ enterprise records</span></span>, resolving 50+ monthly recurring anomalies and delivering a measured <span class="pointer-highlight highlight-emerald" data-badge="+30% Accuracy"><span class="ph-text">30% improvement in operational data accuracy</span></span>. I combine rigorous enterprise data operations with state-of-the-art software engineering, having built live platforms including <a href="https://www.learnifyai.in/" target="_blank" class="link-preview" data-preview-url="https://www.learnifyai.in/"><strong>Learnify AI</strong></a>, <a href="https://dream-sync-nine.vercel.app/" target="_blank" class="link-preview" data-preview-url="https://dream-sync-nine.vercel.app/"><strong>DreamSync</strong></a>, <a href="https://luxurylaundry.vercel.app/" target="_blank" class="link-preview" data-preview-url="https://luxurylaundry.vercel.app/"><strong>Luxury Laundry</strong></a>, and <a href="https://jarvisaios.vercel.app/" target="_blank" class="link-preview" data-preview-url="https://jarvisaios.vercel.app/"><strong>JARVIS AI OS</strong></a>.
                     </p>
                     <div class="about-stats">
                         <div class="stat-item">
-                            <div class="stat-number">1000+</div>
-                            <div class="stat-label">Records Processed Daily</div>
+                            <div class="stat-number">200K+</div>
+                            <div class="stat-label">Records Reconciled</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">2+</div>
-                            <div class="stat-label">Years Experience</div>
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Flagship AI & SaaS Apps</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">15+</div>
-                            <div class="stat-label">Technical Skills</div>
+                            <div class="stat-number">8.1</div>
+                            <div class="stat-label">BCA CGPA (Exemplary)</div>
                         </div>
                     </div>
                     <div class="about-highlights">
@@ -162,182 +300,48 @@
     <section class="skills" id="skills">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
+                <h2 class="section-title">Technical <span class="colourful-text" data-text="Skills">Skills</span></h2>
                 <p class="section-subtitle">My expertise across various domains</p>
             </div>
             <div class="skills-categories">
+                <!-- Category 1: AI & Agentic Systems -->
                 <div class="skill-category">
                     <div class="category-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Web Development & Programming</h3>
+                        <i class="fas fa-brain"></i>
+                        <h3>Generative AI & Agentic Systems</h3>
                     </div>
                     <div class="skills-grid">
-                        <div class="skill-item" data-skill="90">
-                            <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                            <div class="skill-info">
-                                <h4>HTML</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="85">
-                            <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
-                            <div class="skill-info">
-                                <h4>CSS</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="80">
-                            <div class="skill-icon"><i class="fab fa-js"></i></div>
-                            <div class="skill-info">
-                                <h4>JavaScript</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="80"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="75">
-                            <div class="skill-icon"><i class="fas fa-database"></i></div>
-                            <div class="skill-info">
-                                <h4>MySQL</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="75"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="85">
-                            <div class="skill-icon"><i class="fab fa-github"></i></div>
-                            <div class="skill-info">
-                                <h4>GitHub</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Data & Analytics</h3>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-skill="85">
-                            <div class="skill-icon"><i class="fab fa-python"></i></div>
-                            <div class="skill-info">
-                                <h4>Python</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="skill-item" data-skill="95">
-                            <div class="skill-icon"><i class="fas fa-file-excel"></i></div>
+                            <div class="skill-icon"><i class="fas fa-robot"></i></div>
                             <div class="skill-info">
-                                <h4>Microsoft Excel</h4>
+                                <h4>LLM APIs (OpenRouter, Gemini, Claude)</h4>
                                 <div class="skill-bar">
                                     <div class="skill-progress" data-progress="95"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="90">
-                            <div class="skill-icon"><i class="fab fa-salesforce"></i></div>
+                            <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
                             <div class="skill-info">
-                                <h4>Salesforce</h4>
+                                <h4>CrewAI & Multi-Agent Workflows</h4>
                                 <div class="skill-bar">
                                     <div class="skill-progress" data-progress="90"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="skill-item" data-skill="85">
-                            <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
-                            <div class="skill-info">
-                                <h4>Data Visualization</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-robot"></i>
-                        <h3>AI & Automation</h3>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-skill="90">
-                            <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                            <div class="skill-info">
-                                <h4>ChatGPT & AI Tools</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="85">
-                            <div class="skill-icon"><i class="fas fa-code-branch"></i></div>
-                            <div class="skill-info">
-                                <h4>Python Automation</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="88">
+                        <div class="skill-item" data-skill="92">
                             <div class="skill-icon"><i class="fas fa-comments"></i></div>
                             <div class="skill-info">
-                                <h4>Prompt Engineering</h4>
+                                <h4>Prompt Engineering & Context Design</h4>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="88"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-palette"></i>
-                        <h3>Creative & Multimedia</h3>
-                    </div>
-                    <div class="skills-grid">
-                        <div class="skill-item" data-skill="90">
-                            <div class="skill-icon"><i class="fas fa-pen-fancy"></i></div>
-                            <div class="skill-info">
-                                <h4>Canva</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="90"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="75">
-                            <div class="skill-icon"><i class="fas fa-image"></i></div>
-                            <div class="skill-info">
-                                <h4>Photoshop</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="75"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill="85">
-                            <div class="skill-icon"><i class="fas fa-video"></i></div>
-                            <div class="skill-info">
-                                <h4>Video Editing</h4>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" data-progress="85"></div>
+                                    <div class="skill-progress" data-progress="92"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="88">
-                            <div class="skill-icon"><i class="fab fa-instagram"></i></div>
+                            <div class="skill-icon"><i class="fab fa-python"></i></div>
                             <div class="skill-info">
-                                <h4>Social Media Content</h4>
+                                <h4>Python AI & Workflow Automation</h4>
                                 <div class="skill-bar">
                                     <div class="skill-progress" data-progress="88"></div>
                                 </div>
@@ -346,36 +350,184 @@
                     </div>
                 </div>
 
+                <!-- Category 2: Frontend Engineering -->
                 <div class="skill-category">
                     <div class="category-header">
-                        <i class="fas fa-users"></i>
-                        <h3>Soft Skills</h3>
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Modern Frontend Engineering</h3>
                     </div>
                     <div class="skills-grid">
                         <div class="skill-item" data-skill="92">
-                            <div class="skill-icon"><i class="fas fa-microphone"></i></div>
+                            <div class="skill-icon"><i class="fab fa-react"></i></div>
                             <div class="skill-info">
-                                <h4>Public Speaking</h4>
+                                <h4>React 19 & Next.js (App Router)</h4>
                                 <div class="skill-bar">
                                     <div class="skill-progress" data-progress="92"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="90">
-                            <div class="skill-icon"><i class="fas fa-handshake"></i></div>
+                            <div class="skill-icon"><i class="fab fa-js"></i></div>
                             <div class="skill-info">
-                                <h4>Teamwork</h4>
+                                <h4>TypeScript & Modern JavaScript</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="92">
+                            <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+                            <div class="skill-info">
+                                <h4>Tailwind CSS & Framer Motion</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="92"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="94">
+                            <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                            <div class="skill-info">
+                                <h4>Responsive UI/UX & Design Systems</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="94"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Backend & Real-Time -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-server"></i>
+                        <h3>Backend, APIs & Real-Time</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="88">
+                            <div class="skill-icon"><i class="fab fa-node-js"></i></div>
+                            <div class="skill-info">
+                                <h4>Node.js & Express.js</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="90">
+                            <div class="skill-icon"><i class="fas fa-plug"></i></div>
+                            <div class="skill-info">
+                                <h4>RESTful APIs & Middleware Architecture</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="85">
+                            <div class="skill-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="skill-info">
+                                <h4>Socket.io (Real-Time WebSockets)</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="88">
+                            <div class="skill-icon"><i class="fas fa-credit-card"></i></div>
+                            <div class="skill-info">
+                                <h4>Payment Gateways (Cashfree & Razorpay)</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Databases & Cloud -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-database"></i>
+                        <h3>Databases & Cloud Architecture</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="90">
+                            <div class="skill-icon"><i class="fas fa-fire"></i></div>
+                            <div class="skill-info">
+                                <h4>Supabase & Firebase</h4>
                                 <div class="skill-bar">
                                     <div class="skill-progress" data-progress="90"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="skill-item" data-skill="88">
-                            <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="skill-icon"><i class="fas fa-database"></i></div>
                             <div class="skill-info">
-                                <h4>Problem Solving</h4>
+                                <h4>PostgreSQL & MySQL</h4>
                                 <div class="skill-bar">
                                     <div class="skill-progress" data-progress="88"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="86">
+                            <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+                            <div class="skill-info">
+                                <h4>Prisma ORM & Upstash Redis</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="86"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="90">
+                            <div class="skill-icon"><i class="fab fa-github"></i></div>
+                            <div class="skill-info">
+                                <h4>Git, GitHub & Cloud Deployment (Vercel/Render)</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 5: Enterprise Data Operations -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Enterprise Data Operations & Analytics</h3>
+                    </div>
+                    <div class="skills-grid">
+                        <div class="skill-item" data-skill="95">
+                            <div class="skill-icon"><i class="fas fa-file-excel"></i></div>
+                            <div class="skill-info">
+                                <h4>Advanced Microsoft Excel & Power Query</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="95"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="92">
+                            <div class="skill-icon"><i class="fab fa-salesforce"></i></div>
+                            <div class="skill-info">
+                                <h4>Salesforce CRM & Salesforce Data Loader</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="92"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="95">
+                            <div class="skill-icon"><i class="fas fa-check-double"></i></div>
+                            <div class="skill-info">
+                                <h4>Data Reconciliation & Integrity Auditing</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="95"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="86">
+                            <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+                            <div class="skill-info">
+                                <h4>Power BI & Business Analytics</h4>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-progress="86"></div>
                                 </div>
                             </div>
                         </div>
@@ -392,113 +544,142 @@
                 <p class="section-subtitle">My professional journey and achievements</p>
             </div>
             <div class="timeline">
+                <!-- Rootbridge Data Management -->
                 <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content follower-pointer-card" data-pointer-title="Vishwajeet | Data Specialist" data-pointer-color="#3b82f6">
                         <div class="timeline-date">December 2024 – Present</div>
-                        <h3>Reconciliation & Data Management</h3>
-                        <h4>Rootbridge | Bengaluru</h4>
+                        <h3>Reconciliation & Data Management Specialist</h3>
+                        <h4>Rootbridge Academy Pvt. Ltd. | Bengaluru</h4>
                         <ul class="timeline-achievements">
-                            <li><i class="fas fa-check-circle"></i> Process and validate 1,000+ data records daily using
-                                Excel and Salesforce</li>
-                            <li><i class="fas fa-check-circle"></i> Improved data accuracy and integrity, enhancing
-                                decision-making</li>
-                            <li><i class="fas fa-check-circle"></i> Resolved technical issues, ensuring seamless
-                                workflow</li>
-                            <li><i class="fas fa-check-circle"></i> Maintained confidentiality, reinforcing compliance
-                                standards</li>
+                            <li><i class="fas fa-check-circle"></i> <span>Audited, cleansed, and reconciled <strong>200,000+ enterprise records</strong> across operational and financial databases</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Resolved <strong>50+ recurring monthly data discrepancies</strong> by engineering systematic validation and reconciliation pipelines</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Achieved a measured <strong>30% improvement in organizational data accuracy</strong>, directly elevating audit integrity and reporting quality</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Integrated automated workflows between Microsoft Excel (Power Query), Salesforce CRM, and Salesforce Data Loader</span></li>
                         </ul>
                         <div class="timeline-tags">
-                            <span class="tag">Excel</span>
-                            <span class="tag">Salesforce</span>
-                            <span class="tag">Data Management</span>
-                            <span class="tag">Process Optimization</span>
+                            <span class="tag">Excel (Power Query)</span>
+                            <span class="tag">Salesforce CRM</span>
+                            <span class="tag">Salesforce Data Loader</span>
+                            <span class="tag">Data Reconciliation</span>
+                            <span class="tag">Data Governance</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Sorting Hat / Unacademy -->
                 <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content follower-pointer-card" data-pointer-title="Vishwajeet | Automation Intern" data-pointer-color="#8b5cf6">
+                        <div class="timeline-date">February 2026 – March 2026</div>
+                        <h3>Social Media & Automation Intern</h3>
+                        <h4>Sorting Hat Technologies (Unacademy) | Bengaluru</h4>
+                        <ul class="timeline-achievements">
+                            <li><i class="fas fa-check-circle"></i> <span>Built custom <strong>Python automation scripts</strong> to streamline content metadata tagging, playlist management, and video ingestion on Atlas</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Designed high-CTR educational video thumbnails and optimized metadata to maximize organic discoverability</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Collaborated with educators and media teams to maintain high-cadence publishing schedules across multiple YouTube channels</span></li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Python Automation</span>
+                            <span class="tag">Atlas Platform</span>
+                            <span class="tag">Workflow Optimization</span>
+                            <span class="tag">Media Engineering</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ISM UNIV -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content follower-pointer-card" data-pointer-title="Vishwajeet | Full Stack Intern" data-pointer-color="#10b981">
+                        <div class="timeline-date">March 2026 – April 2026</div>
+                        <h3>Full Stack Development Intern</h3>
+                        <h4>ISM UNIV — University of Skills | Bengaluru</h4>
+                        <ul class="timeline-achievements">
+                            <li><i class="fas fa-check-circle"></i> <span>Contributed to full-stack web applications using modern JavaScript/TypeScript ecosystems</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Built modular, responsive frontend components and integrated backend REST APIs</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Participated in agile development sprints, code reviews, and performance optimization</span></li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Full Stack Development</span>
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">REST APIs</span>
+                            <span class="tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rootbridge Fundraiser -->
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content follower-pointer-card" data-pointer-title="Vishwajeet | Fundraiser" data-pointer-color="#f59e0b">
                         <div class="timeline-date">April 2024 – November 2024</div>
-                        <h3>Fundraiser</h3>
-                        <h4>Rootbridge | Bengaluru</h4>
+                        <h3>Fundraiser & Stakeholder Outreach</h3>
+                        <h4>Rootbridge Academy Pvt. Ltd. | Bengaluru</h4>
                         <ul class="timeline-achievements">
-                            <li><i class="fas fa-check-circle"></i> Engaged donors and communicated organization mission
-                                effectively</li>
-                            <li><i class="fas fa-check-circle"></i> Built strong stakeholder relationships, consistently
-                                achieved targets</li>
-                            <li><i class="fas fa-check-circle"></i> Promoted awareness, increasing community involvement
-                            </li>
+                            <li><i class="fas fa-check-circle"></i> <span>Spearheaded direct donor engagement campaigns, articulating educational initiatives and non-profit missions</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Built and nurtured high-trust stakeholder relationships, consistently meeting fundraising benchmarks</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Promoted community awareness and engagement across digital and in-person outreach channels</span></li>
                         </ul>
                         <div class="timeline-tags">
+                            <span class="tag">Stakeholder Outreach</span>
                             <span class="tag">Donor Engagement</span>
-                            <span class="tag">Communication</span>
-                            <span class="tag">Relationship Building</span>
+                            <span class="tag">Strategic Communication</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- WeLive Foundation -->
                 <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content follower-pointer-card" data-pointer-title="Vishwajeet | Content Strategist" data-pointer-color="#ec4899">
                         <div class="timeline-date">February 2024 – March 2024</div>
-                        <h3>Social Media Designer</h3>
+                        <h3>Social Media Designer & Content Strategist</h3>
                         <h4>WeLive Foundation | Bengaluru</h4>
                         <ul class="timeline-achievements">
-                            <li><i class="fas fa-check-circle"></i> Designed engaging social media content for multiple
-                                platforms</li>
-                            <li><i class="fas fa-check-circle"></i> Edited videos and created visual storytelling
-                                content</li>
-                            <li><i class="fas fa-check-circle"></i> Wrote blogs and managed WordPress website</li>
+                            <li><i class="fas fa-check-circle"></i> <span>Designed 50+ engaging digital assets and social media creatives using Canva</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Authored and published articles on WordPress, improving content layout and typography</span></li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="tag">Canva</span>
-                            <span class="tag">Video Editing</span>
                             <span class="tag">WordPress</span>
-                            <span class="tag">Content Creation</span>
+                            <span class="tag">Visual Design</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- TeamLease Services -->
                 <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content follower-pointer-card" data-pointer-title="Vishwajeet | Relationship Exec" data-pointer-color="#06b6d4">
                         <div class="timeline-date">June 2023 – December 2023</div>
                         <h3>Relationship Executive</h3>
                         <h4>TeamLease Services Limited | Bengaluru</h4>
                         <ul class="timeline-achievements">
-                            <li><i class="fas fa-check-circle"></i> Built strong client relationships and promoted
-                                services</li>
-                            <li><i class="fas fa-check-circle"></i> Consistently achieved and exceeded targets</li>
-                            <li><i class="fas fa-check-circle"></i> Enhanced client satisfaction through effective
-                                communication</li>
+                            <li><i class="fas fa-check-circle"></i> <span>Managed client onboarding, business inquiries, and sustained multi-channel customer communication</span></li>
+                            <li><i class="fas fa-check-circle"></i> <span>Consistently achieved quarterly engagement and relationship management targets</span></li>
                         </ul>
                         <div class="timeline-tags">
                             <span class="tag">Client Relations</span>
-                            <span class="tag">Sales</span>
-                            <span class="tag">Communication</span>
+                            <span class="tag">Account Management</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- ViewMyRecords -->
                 <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">April 2022 – May 2022</div>
-                        <h3>Social Media Management</h3>
-                        <h4>New Growth Organization | New Delhi</h4>
+                    <div class="timeline-content follower-pointer-card" data-pointer-title="Vishwajeet | Data Ops" data-pointer-color="#6366f1">
+                        <div class="timeline-date">January 2023 – April 2023</div>
+                        <h3>Employee Data Network Uploader</h3>
+                        <h4>ViewMyRecords Private Limited | Bengaluru</h4>
                         <ul class="timeline-achievements">
-                            <li><i class="fas fa-check-circle"></i> Managed content scheduling across social platforms
-                            </li>
-                            <li><i class="fas fa-check-circle"></i> Analyzed metrics to optimize engagement</li>
-                            <li><i class="fas fa-check-circle"></i> Engaged audiences with creative content strategies
-                            </li>
+                            <li><i class="fas fa-check-circle"></i> <span>Executed high-volume structured employee database uploads with 99%+ verification accuracy</span></li>
                         </ul>
                         <div class="timeline-tags">
-                            <span class="tag">Social Media</span>
-                            <span class="tag">Analytics</span>
-                            <span class="tag">Content Strategy</span>
+                            <span class="tag">Database Management</span>
+                            <span class="tag">Data Verification</span>
                         </div>
                     </div>
                 </div>
@@ -509,74 +690,180 @@
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Featured <span class="colourful-text" data-text="Projects">Projects</span></h2>
                 <p class="section-subtitle">Showcasing my work in web development, data analytics, and AI automation</p>
             </div>
             <div class="projects-grid">
+                <!-- Learnify AI -->
                 <div class="project-card" data-aos="fade-up">
                     <div class="project-image">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Demo">
+                                <a href="https://www.learnifyai.in/" target="_blank" class="project-link" aria-label="View Demo">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="#" class="project-link" aria-label="View Code">
+                                <a href="https://github.com/Vishwajeetsrk/learnifyai" target="_blank" class="project-link" aria-label="View Code">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="project-icon-placeholder">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-brain"></i>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Data Analytics Dashboard</h3>
-                        <p>Interactive dashboard for visualizing complex datasets with real-time analytics, built using
-                            Python and Excel automation scripts.</p>
+                        <h3>Learnify AI — Learning & Career Platform</h3>
+                        <p>End-to-end full-stack AI platform unifying multi-modal AI tutoring, career roadmapping, AI resume builder, ATS compatibility analyzer, creator tools, and community learning.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Excel</span>
-                            <span class="tech-tag">Data Viz</span>
+                            <span class="tech-tag">React 19</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">OpenRouter API</span>
+                            <span class="tech-tag">Cashfree</span>
                         </div>
                         <div class="project-impact">
-                            <span><i class="fas fa-bolt"></i> Reduced analysis time by 60%</span>
+                            <span><i class="fas fa-bolt"></i> Live Production AI SaaS Platform</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- DreamSync -->
                 <div class="project-card" data-aos="fade-up">
                     <div class="project-image">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="https://taskflow-production-9ca3.up.railway.app/login" class="project-link" aria-label="View Demo">
+                                <a href="https://dream-sync-nine.vercel.app/" target="_blank" class="project-link" aria-label="View Demo">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="https://github.com/Vishwajeetsrk/TaskFlow" class="project-link" aria-label="View Code">
+                                <a href="https://github.com/Vishwajeetsrk/dreamssync_test" target="_blank" class="project-link" aria-label="View Code">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
                         </div>
                         <div class="project-icon-placeholder">
-                            <i class="fas fa-robot"></i>
+                            <i class="fas fa-rocket"></i>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>TaskFlow - Smart Task Manager</h3>
-                        <p> A full-stack SaaS-style task management application with authentication,
-                            task CRUD operations, gamification system, and responsive UI.</p>
+                        <h3>DreamSync — AI Career Intelligence</h3>
+                        <p>AI-driven career acceleration suite featuring automated ATS resume checking, LinkedIn optimization, and dynamic portfolio generation powered by Gemini & OpenRouter.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">EJS</span>
-                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Google Gemini</span>
+                            <span class="tech-tag">Upstash Redis</span>
+                        </div>
+                        <div class="project-impact">
+                            <span><i class="fas fa-bolt"></i> AI Resume & ATS Engine</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Luxury Laundry -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://luxurylaundry.vercel.app/" target="_blank" class="project-link" aria-label="View Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Vishwajeetsrk/LUXURY-LAUNDRY" target="_blank" class="project-link" aria-label="View Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-icon-placeholder">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Luxury Laundry — Real-Time SaaS</h3>
+                        <p>Full-stack on-demand laundry management platform with synchronized customer order tracking, administrator control center, and live WebSockets status notifications.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Prisma ORM</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                        <div class="project-impact">
+                            <span><i class="fas fa-bolt"></i> Bidirectional Real-Time Architecture</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- JARVIS AI OS -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://jarvisaios.vercel.app/" target="_blank" class="project-link" aria-label="View Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Vishwajeetsrk/JARVIS-AI-OS" target="_blank" class="project-link" aria-label="View Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-icon-placeholder">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>JARVIS AI OS — Agentic Desktop System</h3>
+                        <p>Experimental AI desktop operating system interface integrating persistent semantic memory recall, autonomous multi-agent task execution, and interactive voice intelligence.</p>
+                        <div class="project-tech">
                             <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">AI Agents</span>
+                            <span class="tech-tag">Voice AI</span>
+                            <span class="tech-tag">Memory Recall</span>
+                            <span class="tech-tag">Tauri</span>
+                            <span class="tech-tag">PWA</span>
                         </div>
                         <div class="project-impact">
-                            <span><i class="fas fa-bolt"></i>Full Stack Production App</span>
+                            <span><i class="fas fa-bolt"></i> Autonomous Multi-Agent Desktop OS</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- TaskFlow -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://taskflow-production-9ca3.up.railway.app/login" target="_blank" class="project-link" aria-label="View Demo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Vishwajeetsrk/TaskFlow" target="_blank" class="project-link" aria-label="View Code">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-icon-placeholder">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>TaskFlow — Smart SaaS Task Manager</h3>
+                        <p>Production full-stack task management application featuring JWT authentication, task CRUD workflows, productivity gamification, and responsive layout.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">EJS</span>
+                            <span class="tech-tag">Railway</span>
+                        </div>
+                        <div class="project-impact">
+                            <span><i class="fas fa-bolt"></i> Production Full Stack App</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Data Reconciliation -->
                 <div class="project-card" data-aos="fade-up">
                     <div class="project-image">
                         <div class="project-overlay">
@@ -584,38 +871,7 @@
                                 <a href="https://vishwajeetsrk.github.io/" class="project-link" aria-label="View Demo">
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
-                                <a href="https://github.com/Vishwajeetsrk/vishwajeetsrk.github.io" class="project-link" aria-label="View Code">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-icon-placeholder">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Interactive Portfolio Website</h3>
-                        <p>Modern, responsive portfolio showcasing projects and skills with smooth animations, dark
-                            mode, and interactive elements.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-impact">
-                            <span><i class="fas fa-bolt"></i> Full responsive design</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="project-link" aria-label="View Code">
+                                <a href="https://github.com/Vishwajeetsrk" target="_blank" class="project-link" aria-label="View Code">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </div>
@@ -625,78 +881,17 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Salesforce Data Integration</h3>
-                        <p>Developed automated workflows for seamless data reconciliation between Excel and Salesforce,
-                            ensuring data integrity.</p>
+                        <h3>Enterprise Data Reconciliation Engine</h3>
+                        <p>Automated validation workflows and discrepancy resolution pipelines for Salesforce CRM and Excel, managing 200,000+ high-volume records with audit-ready accuracy.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Salesforce</span>
+                            <span class="tech-tag">Salesforce CRM</span>
+                            <span class="tech-tag">Data Loader</span>
+                            <span class="tech-tag">Power Query</span>
                             <span class="tech-tag">Excel</span>
-                            <span class="tech-tag">Integration</span>
+                            <span class="tech-tag">Python</span>
                         </div>
                         <div class="project-impact">
-                            <span><i class="fas fa-bolt"></i> 99% data accuracy achieved</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="project-link" aria-label="View Code">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-icon-placeholder">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Multimedia Campaign Design</h3>
-                        <p>Created engaging social media campaigns with video content, graphics, and blog articles for
-                            non-profit organizations.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Canva</span>
-                            <span class="tech-tag">Video Editing</span>
-                            <span class="tech-tag">WordPress</span>
-                        </div>
-                        <div class="project-impact">
-                            <span><i class="fas fa-bolt"></i> 150% engagement increase</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link" aria-label="View Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                                <a href="#" class="project-link" aria-label="View Code">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-icon-placeholder">
-                            <i class="fas fa-database"></i>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>MySQL Database System</h3>
-                        <p>Designed and implemented relational database with optimized queries for efficient data
-                            retrieval and management.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Database Design</span>
-                            <span class="tech-tag">SQL</span>
-                        </div>
-                        <div class="project-impact">
-                            <span><i class="fas fa-bolt"></i> 40% faster queries</span>
+                            <span><i class="fas fa-bolt"></i> 30% Measured Data Accuracy Boost</span>
                         </div>
                     </div>
                 </div>
@@ -714,79 +909,158 @@
                 <div class="education-category">
                     <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                     <div class="education-items">
-                        <div class="education-card" data-aos="fade-up">
-                            <div class="edu-icon">
-                                <i class="fas fa-university"></i>
+                        <div class="education-card canvas-reveal-card" data-colors='[[236, 72, 153], [232, 121, 249], [168, 85, 247]]' data-aos="fade-up">
+                            <svg class="corner-cross top-left" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross top-right" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross bottom-left" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross bottom-right" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <div class="canvas-reveal-wrapper">
+                                <canvas class="canvas-reveal-layer"></canvas>
+                                <div class="canvas-reveal-gradient"></div>
                             </div>
-                            <div class="edu-content">
-                                <h4>Bachelor of Computer Applications (BCA)</h4>
-                                <p class="edu-institution">St. Aloysius Degree College</p>
-                                <p class="edu-duration">July 2023 – May 2026 (Expected)</p>
-                                <p class="edu-description">
-                                    Computer Science specialization with focus on software development,
-                                    data structures, and web technologies.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="education-card" data-aos="fade-up">
-                            <div class="edu-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <div class="edu-content">
-                                <h4>Software Development & Programming</h4>
-                                <p class="edu-institution">Oxford Software Institute</p>
-                                <p class="edu-duration">February 2022 – February 2023</p>
-                                <p class="edu-description">
-                                    Comprehensive training in software development, programming fundamentals,
-                                    and practical application building.
-                                </p>
+                            <div class="edu-card-body">
+                                <div class="edu-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="edu-content">
+                                    <h4>Bachelor of Computer Applications (BCA)</h4>
+                                    <p class="edu-institution">St. Aloysius Degree College (Bengaluru North University)</p>
+                                    <p class="edu-duration">2023 – 2026 | First Class Exemplary</p>
+                                    <p class="edu-description">
+                                        <strong>CGPA: 8.1 / 10 | 6th Sem SGPA: 9.06 / 10 (89.57%)</strong><br>
+                                        Project Work: <strong>148/150</strong> • Final Internship: <strong>99/100</strong> • Web CMS: <strong>96/100</strong> • AI & Applications: <strong>86/100</strong> • Fundamentals of Data Science: <strong>85/100</strong>.
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="education-card" data-aos="fade-up">
-                            <div class="edu-icon">
-                                <i class="fas fa-school"></i>
+                        <div class="education-card canvas-reveal-card" data-colors='[[56, 189, 248], [59, 130, 246], [99, 102, 241]]' data-aos="fade-up">
+                            <svg class="corner-cross top-left" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross top-right" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross bottom-left" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross bottom-right" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <div class="canvas-reveal-wrapper">
+                                <canvas class="canvas-reveal-layer"></canvas>
+                                <div class="canvas-reveal-gradient"></div>
                             </div>
-                            <div class="edu-content">
-                                <h4>12th Grade - Computer Science</h4>
-                                <p class="edu-institution">National Institute of Open Schooling</p>
-                                <p class="edu-duration">September 2020 – January 2022</p>
-                                <p class="edu-description">
-                                    Completed senior secondary education with specialization in Computer Science.
-                                </p>
+                            <div class="edu-card-body">
+                                <div class="edu-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="edu-content">
+                                    <h4>Diploma in Software Development</h4>
+                                    <p class="edu-institution">Oxford Software Institute, New Delhi</p>
+                                    <p class="edu-duration">February 2022 – February 2023 | Grade: A</p>
+                                    <p class="edu-description">
+                                        Oxford Certified Software Developer covering Core Java, Advanced Python, C, C++, Data Structures, HTML5, CSS3, and JavaScript.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="education-card canvas-reveal-card" data-colors='[[16, 185, 129], [52, 211, 153], [6, 182, 212]]' data-aos="fade-up">
+                            <svg class="corner-cross top-left" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross top-right" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross bottom-left" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <svg class="corner-cross bottom-right" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" /></svg>
+                            <div class="canvas-reveal-wrapper">
+                                <canvas class="canvas-reveal-layer"></canvas>
+                                <div class="canvas-reveal-gradient"></div>
+                            </div>
+                            <div class="edu-card-body">
+                                <div class="edu-icon">
+                                    <i class="fas fa-school"></i>
+                                </div>
+                                <div class="edu-content">
+                                    <h4>Senior Secondary (12th Grade)</h4>
+                                    <p class="edu-institution">National Institute of Open Schooling (NIOS), New Delhi</p>
+                                    <p class="edu-duration">2020 – 2022</p>
+                                    <p class="edu-description">
+                                        Senior secondary education with core specialization in Computer Science, Mathematics, and Informatics.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="education-category">
-                    <h3><i class="fas fa-certificate"></i> Certifications</h3>
+                    <h3><i class="fas fa-certificate"></i> Certifications & Honors</h3>
                     <div class="education-items">
-                        <div class="certification-card" data-aos="fade-up">
-                            <div class="cert-icon">
-                                <i class="fas fa-brain"></i>
+                        <div class="certification-card card-spotlight" data-aos="fade-up">
+                            <div class="cert-icon" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                                <i class="fas fa-trophy"></i>
                             </div>
                             <div class="cert-content">
-                                <h4>GenAI Powered Data Analytics</h4>
-                                <p class="cert-issuer">Tata - Job Simulation</p>
+                                <h4>1st Prize — Web Design Competition</h4>
+                                <p class="cert-issuer">NEURO2026, Charan's Degree College</p>
                                 <p class="cert-description">
-                                    Advanced training in leveraging Generative AI for data analytics,
-                                    automation, and business intelligence.
+                                    Awarded 1st place in collegiate web design and frontend UI/UX architecture competition (April 2026).
                                 </p>
                             </div>
                         </div>
 
-                        <div class="certification-card" data-aos="fade-up">
+                        <div class="certification-card card-spotlight" data-aos="fade-up">
                             <div class="cert-icon">
-                                <i class="fas fa-palette"></i>
+                                <i class="fas fa-robot"></i>
                             </div>
                             <div class="cert-content">
-                                <h4>Build Your Business Brand Using Canva</h4>
-                                <p class="cert-issuer">Professional Certification</p>
+                                <h4>Resume Review Agentic System with CrewAI</h4>
+                                <p class="cert-issuer">Analytics Vidhya | ID: owpzuxfeya</p>
                                 <p class="cert-description">
-                                    Comprehensive certification in brand design, visual storytelling,
-                                    and professional graphic design using Canva.
+                                    Engineered multi-agent LLM systems for autonomous resume evaluation, scoring, and feedback generation using CrewAI.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="certification-card card-spotlight" data-aos="fade-up">
+                            <div class="cert-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>AI Pair Programming with GitHub Copilot</h4>
+                                <p class="cert-issuer">LinkedIn Learning</p>
+                                <p class="cert-description">
+                                    Industry best practices in AI-assisted code generation, unit testing, refactoring, and developer velocity.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="certification-card card-spotlight" data-aos="fade-up">
+                            <div class="cert-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Tata — GenAI Powered Data Analytics</h4>
+                                <p class="cert-issuer">Tata / Forage | ID: 7S7RXn9dQLKQr2x76</p>
+                                <p class="cert-description">
+                                    Applied Generative AI models to solve real-world enterprise data analytics, automated visualization, and executive reporting.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="certification-card card-spotlight" data-aos="fade-up">
+                            <div class="cert-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Power BI for Data Analysts</h4>
+                                <p class="cert-issuer">Microsoft Press / LinkedIn Learning</p>
+                                <p class="cert-description">
+                                    End-to-end business intelligence dashboards, DAX querying, and interactive data modeling.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="certification-card card-spotlight" data-aos="fade-up">
+                            <div class="cert-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <div class="cert-content">
+                                <h4>Google Sheets Professional</h4>
+                                <p class="cert-issuer">Simplilearn | ID: 9820370</p>
+                                <p class="cert-description">
+                                    Advanced data reconciliation, automated spreadsheet modeling, and query-based analysis.
                                 </p>
                             </div>
                         </div>
@@ -799,9 +1073,8 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="section-subtitle">Let's discuss opportunities in Data Management, AI Automation, and Web
-                    Development</p>
+                <h2 class="section-title">Get In <span class="colourful-text" data-text="Touch">Touch</span></h2>
+                <p class="section-subtitle">Let's discuss opportunities in AI Software Engineering, Full Stack Development, and Data Operations</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -821,7 +1094,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Phone</h4>
-                            <p><a href="tel:+918595202922">+91 8595202922</a></p>
+                            <p><a href="tel:+918595202922">+91 85952 02922</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -857,29 +1130,48 @@
                 </div>
                 <div class="contact-form-container">
                     <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
+                        <div class="form-group label-input-container">
+                            <label for="name" class="acet-label">Your Name</label>
+                            <div class="acet-input-wrapper">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="form-group label-input-container">
+                            <label for="email" class="acet-label">Your Email</label>
+                            <div class="acet-input-wrapper">
+                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
+                        <div class="form-group label-input-container">
+                            <label for="phone" class="acet-label">Your Mobile / WhatsApp Number</label>
+                            <div class="acet-input-wrapper">
+                                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                        <div class="form-group label-input-container">
+                            <label for="subject" class="acet-label">Subject</label>
+                            <div class="acet-input-wrapper">
+                                <input type="text" id="subject" name="subject" placeholder="Project inquiry / Opportunity" required>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                        <div class="form-group label-input-container">
+                            <label for="message" class="acet-label">Message</label>
+                            <div class="acet-input-wrapper">
+                                <textarea id="message" name="message" rows="4" placeholder="Let's build something extraordinary together..." required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary acet-btn-gradient" id="contactSubmitBtn">
+                            <span><i class="fas fa-paper-plane"></i> Send Message</span>
+                            <span class="btn-bottom-gradient"></span>
+                            <span class="btn-bottom-gradient-glow"></span>
                         </button>
                     </form>
                     <div class="form-success" id="formSuccess">
                         <i class="fas fa-check-circle"></i>
-                        <p>Thank you! Your message has been sent successfully.</p>
+                        <p>Thank you! Your message has been dispatched to Vishwajeet.</p>
+                        <a href="#" id="contactWaAlert" target="_blank" class="contact-wa-link" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i> Also Notify Directly on WhatsApp
+                        </a>
                     </div>
                 </div>
             </div>
@@ -891,7 +1183,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Vishwajeet</h3>
-                    <p>Data-Driven Innovator | AI & Web Developer</p>
+                    <p>AI Software Engineer | Full Stack Developer | AI Application Developer</p>
                 </div>
                 <div class="footer-links">
                     <a href="#home">Home</a>
@@ -900,6 +1192,7 @@
                     <a href="#experience">Experience</a>
                     <a href="#projects">Projects</a>
                     <a href="#education">Education</a>
+                    <a href="resume.html" target="_blank">Resume</a>
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-social">
@@ -915,10 +1208,218 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025-26 Vishwajeet All rights reserved.</p>
+                <p>&copy; 2026 Vishwajeet. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- ===================================
+         ACETERNITY / CAL.COM SCHEDULING MODAL
+         =================================== -->
+    <div class="cal-modal-overlay" id="chatModalOverlay" aria-hidden="true">
+        <div class="cal-modal-window" role="dialog" aria-modal="true" aria-labelledby="calHostTitle">
+            <button type="button" class="cal-modal-close" id="chatModalClose" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- 3-Column Cal.com Layout -->
+            <div class="cal-modal-content" id="calBookingView">
+                <!-- Left Sidebar: Event & Host Info -->
+                <div class="cal-sidebar">
+                    <div class="cal-avatar-wrap">
+                        <img src="assets/pro2 bg remove.png" alt="Vishwajeet" class="cal-avatar">
+                        <span class="cal-avatar-badge" title="Available"></span>
+                    </div>
+                    <div class="cal-host-info">
+                        <p class="cal-host-name">Vishwajeet</p>
+                        <h3 class="cal-event-title" id="calHostTitle">30 Min Chat</h3>
+                    </div>
+                    <div class="cal-meta-list">
+                        <div class="cal-meta-item">
+                            <i class="far fa-clock"></i>
+                            <span>30 mins</span>
+                        </div>
+                        <div class="cal-meta-item">
+                            <i class="fas fa-video"></i>
+                            <span>Google Meet / Video Call</span>
+                        </div>
+                        <div class="cal-meta-item">
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Asia/Kolkata (IST)</span>
+                        </div>
+                        <div class="cal-meta-item cal-avail-highlight">
+                            <span class="cal-live-dot"></span>
+                            <span>Everyday: <strong>3:00 PM – 7:30 PM</strong></span>
+                        </div>
+                    </div>
+                    <p class="cal-event-desc">
+                        Let's connect 1-on-1 to discuss Generative AI SaaS, Autonomous Agents, Full-Stack development, or career roles.
+                    </p>
+                </div>
+
+                <!-- Center: Interactive Calendar -->
+                <div class="cal-date-picker">
+                    <div class="cal-picker-header">
+                        <h4 class="cal-picker-month" id="calMonthYear">September 2026</h4>
+                        <div class="cal-picker-nav">
+                            <button type="button" class="cal-nav-btn" id="calPrevMonth" aria-label="Previous month">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button type="button" class="cal-nav-btn" id="calNextMonth" aria-label="Next month">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cal-weekdays">
+                        <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+                    </div>
+                    <div class="cal-days-grid" id="calDaysGrid">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
+                <!-- Right: Time Slots (Strictly 3:00 PM - 7:30 PM everyday) -->
+                <div class="cal-time-slots" id="calTimeSlotsPanel">
+                    <div class="cal-slots-header">
+                        <h4 class="cal-slots-date" id="calSlotsDate">Wed, Sep 2</h4>
+                        <span class="cal-slots-tz">12h</span>
+                    </div>
+                    <div class="cal-slots-container" id="calSlotsContainer">
+                        <!-- Populated dynamically via JS with Cal.com split Confirm interaction -->
+                    </div>
+                </div>
+
+                <!-- Slide-in Attendee Details Panel (Replaces slots on Confirm) -->
+                <div class="cal-details-panel" id="calDetailsPanel" style="display: none;">
+                    <div class="cal-details-header">
+                        <button type="button" class="cal-back-btn" id="calBackToSlots">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <h4>Your Information</h4>
+                    </div>
+                    <div class="cal-selected-pill" id="calSelectedPill">
+                        <i class="far fa-calendar-check"></i>
+                        <span id="calSelectedPillText">Wed, Sep 2 at 4:00 PM</span>
+                    </div>
+                    <form class="cal-booking-form" id="calBookingForm">
+                        <div class="cal-form-group">
+                            <label for="calName">Your Name *</label>
+                            <input type="text" id="calName" placeholder="Your Name" required class="cal-form-input">
+                        </div>
+                        <div class="cal-form-group">
+                            <label for="calEmail">Email Address *</label>
+                            <input type="email" id="calEmail" placeholder="you@company.com" required class="cal-form-input">
+                        </div>
+                        <div class="cal-form-group">
+                            <label for="calPhone">Mobile / WhatsApp Number *</label>
+                            <input type="tel" id="calPhone" placeholder="+91 98765 43210" required class="cal-form-input">
+                        </div>
+                        <div class="cal-form-group">
+                            <label for="calNotes">Additional Notes</label>
+                            <textarea id="calNotes" rows="2" placeholder="Discussion topics, project overview..." class="cal-form-input cal-textarea"></textarea>
+                        </div>
+                        <button type="submit" class="cal-confirm-btn" id="calSubmitBooking">
+                            <span>Schedule Meeting</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Upgraded Cal.com Confirmation Success Screen -->
+            <div class="cal-success-view" id="calSuccessView" style="display: none;">
+                <div class="cal-success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h3 class="cal-success-title">This meeting is scheduled</h3>
+                <p class="cal-success-sub">We sent an email with a calendar invitation with the details to everyone.</p>
+                
+                <div class="cal-meeting-card">
+                    <div class="cal-detail-item">
+                        <span class="cal-detail-label">What</span>
+                        <div class="cal-detail-value" id="calSuccessWhat">
+                            Chat with Vishwajeet between Vishwajeet and <span id="calGuestNameDisplay">Guest</span>
+                        </div>
+                    </div>
+                    <div class="cal-detail-item">
+                        <span class="cal-detail-label">When</span>
+                        <div class="cal-detail-value" id="calSuccessWhen">
+                            Tuesday, September 1, 2026, 4:00 PM – 4:30 PM (India Standard Time)
+                        </div>
+                    </div>
+                    <div class="cal-detail-item">
+                        <span class="cal-detail-label">Who</span>
+                        <div class="cal-detail-value cal-who-container">
+                            <div class="cal-who-person">
+                                <div class="cal-person-header">
+                                    <span class="cal-person-name">Vishwajeet</span>
+                                    <span class="cal-role-tag host">Host</span>
+                                </div>
+                                <span class="cal-person-email">vishwajeetsrk@gmail.com</span>
+                            </div>
+                            <div class="cal-who-person">
+                                <div class="cal-person-header">
+                                    <span class="cal-person-name" id="calGuestNameWho">Guest</span>
+                                    <span class="cal-role-tag guest">Guest</span>
+                                </div>
+                                <span class="cal-person-email" id="calGuestEmailWho">guest@company.com</span>
+                                <span class="cal-person-phone" id="calGuestPhoneWho">+91 98765 43210</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cal-detail-item">
+                        <span class="cal-detail-label">Where</span>
+                        <div class="cal-detail-value cal-where-line">
+                            <i class="fas fa-video"></i>
+                            <span>Google Meet / Video Call</span>
+                            <span class="cal-where-note">(Invitation link sent to email)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add to Calendar (With Real Icons & Direct Integrations) -->
+                <div class="cal-add-to-calendar">
+                    <span class="cal-calendar-title">Add to calendar</span>
+                    <div class="cal-calendar-links">
+                        <a href="#" id="calGcalLink" target="_blank" class="cal-cal-button" rel="noopener noreferrer">
+                            <svg class="cal-brand-icon" viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                            <span>Google</span>
+                        </a>
+                        <a href="#" id="calOutlookLink" target="_blank" class="cal-cal-button" rel="noopener noreferrer">
+                            <svg class="cal-brand-icon" viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="#0078D4" d="M24 7.667v8.666A3.67 3.67 0 0 1 20.333 20H8V4h12.333A3.67 3.67 0 0 1 24 7.667z"/>
+                                <path fill="#1490DF" d="M14.5 4H8v16h6.5z"/>
+                                <path fill="#28A8EA" d="M8 4H3.667A3.67 3.67 0 0 0 0 7.667v8.666A3.67 3.67 0 0 0 3.667 20H8V4z"/>
+                                <path fill="#0078D4" d="M9 7.5h6v9H9z"/>
+                            </svg>
+                            <span>Outlook</span>
+                        </a>
+                        <button type="button" id="calIcsDownloadBtn" class="cal-cal-button">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>ICS file</span>
+                        </button>
+                        <a href="#" id="calWhatsappLink" target="_blank" class="cal-cal-button whatsapp" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Footer: Reschedule or Cancel -->
+                <div class="cal-change-footer">
+                    <span>Need to make a change?</span>
+                    <button type="button" class="cal-change-link" id="calRescheduleBtn">Reschedule</button>
+                    <span>or</span>
+                    <button type="button" class="cal-change-link cancel" id="calCancelBtn">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
