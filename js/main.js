@@ -1789,39 +1789,240 @@ function initializeBookChatAnimation() {
     const chatButtons = document.querySelectorAll('.book-chat-btn');
     const modalOverlay = document.getElementById('chatModalOverlay');
     const modalClose = document.getElementById('chatModalClose');
-    const realCalIframe = document.getElementById('realCalIframe');
-    const dur30Tab = document.getElementById('dur30Tab');
-    const dur15Tab = document.getElementById('dur15Tab');
-    const calTopDirectLink = document.getElementById('calTopDirectLink');
+    const bookingView = document.getElementById('calBookingView');
+    const detailsPanel = document.getElementById('calDetailsPanel');
+    const slotsPanel = document.getElementById('calTimeSlotsPanel');
+    const successView = document.getElementById('calSuccessView');
+    const doneBtn = document.getElementById('calDoneBtn');
+    const backToSlotsBtn = document.getElementById('calBackToSlots');
+    const bookingForm = document.getElementById('calBookingForm');
+
+    const calMonthYear = document.getElementById('calMonthYear');
+    const calPrevMonth = document.getElementById('calPrevMonth');
+    const calNextMonth = document.getElementById('calNextMonth');
+    const calDaysGrid = document.getElementById('calDaysGrid');
+    const calSlotsDate = document.getElementById('calSlotsDate');
+    const calSlotsContainer = document.getElementById('calSlotsContainer');
+    const calSelectedPillText = document.getElementById('calSelectedPillText');
+    const calSuccessDate = document.getElementById('calSuccessDate');
+    const calSuccessTime = document.getElementById('calSuccessTime');
+    const calGcalLink = document.getElementById('calGcalLink');
+    const calWhatsappLink = document.getElementById('calWhatsappLink');
 
     if (!modalOverlay) return;
 
-    const calUrls = {
-        30: 'https://cal.com/vishwajeet-srk/30min?embed=true&theme=dark',
-        15: 'https://cal.com/vishwajeet-srk/15min?embed=true&theme=dark'
-    };
+    // Available daily time slots: strictly 3:00 PM to 9:00 PM everyday
+    const dailySlots = [
+        "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
+        "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM",
+        "07:00 PM", "07:30 PM", "08:00 PM", "08:30 PM", "09:00 PM"
+    ];
 
-    const directUrls = {
+    let currentDate = new Date();
+    let viewYear = currentDate.getFullYear();
+    let viewMonth = currentDate.getMonth();
+
+    // Default selected date: tomorrow if past 9:00 PM today, otherwise today
+    let selectedDate = new Date();
+    if (currentDate.getHours() >= 21) {
+        selectedDate.setDate(selectedDate.getDate() + 1);
+    }
+    let selectedSlot = "04:00 PM";
+    let selectedDuration = 30; // 30 or 15 mins
+    const calLinks = {
         30: 'https://cal.com/vishwajeet-srk/30min',
         15: 'https://cal.com/vishwajeet-srk/15min'
     };
 
-    function setCalDuration(dur) {
-        if (dur30Tab) dur30Tab.classList.toggle('active', dur === 30);
-        if (dur15Tab) dur15Tab.classList.toggle('active', dur === 15);
-        if (calTopDirectLink) calTopDirectLink.href = directUrls[dur];
-        if (realCalIframe && realCalIframe.src !== calUrls[dur]) {
-            realCalIframe.src = calUrls[dur];
+    const dur30Btn = document.getElementById('dur30Btn');
+    const dur15Btn = document.getElementById('dur15Btn');
+    const calHostTitle = document.getElementById('calHostTitle');
+    const calDirectLink = document.getElementById('calDirectLink');
+    const calSuccessDirectLink = document.getElementById('calSuccessDirectLink');
+
+    function setDuration(dur) {
+        selectedDuration = dur;
+        if (dur30Btn) dur30Btn.classList.toggle('active', dur === 30);
+        if (dur15Btn) dur15Btn.classList.toggle('active', dur === 15);
+        if (calHostTitle) {
+            calHostTitle.textContent = dur === 15 ? '15 Min Quick Chat' : '30 Min Chat';
+        }
+        if (calDirectLink) {
+            calDirectLink.href = calLinks[dur];
+        }
+        if (calSuccessDirectLink) {
+            calSuccessDirectLink.href = calLinks[dur];
+        }
+        updateSelectedPill();
+    }
+
+    if (dur30Btn) dur30Btn.addEventListener('click', () => setDuration(30));
+    if (dur15Btn) dur15Btn.addEventListener('click', () => setDuration(15));
+
+    const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    function formatDayHeader(date) {
+        return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+    }
+
+    function formatFullDate(date) {
+        return date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+    }
+
+    // Render Slots with Cal.com split Confirm button interaction
+    function renderTimeSlots() {
+        if (!calSlotsContainer) return;
+        if (calSlotsDate) {
+            calSlotsDate.textContent = formatDayHeader(selectedDate);
+        }
+        calSlotsContainer.innerHTML = '';
+
+        dailySlots.forEach(slotTime => {
+            const row = document.createElement('div');
+            row.className = 'cal-slot-row';
+            if (slotTime === selectedSlot) {
+                row.classList.add('active');
+            }
+
+            const slotBtn = document.createElement('button');
+            slotBtn.type = 'button';
+            slotBtn.className = 'cal-slot-btn';
+            slotBtn.textContent = slotTime;
+
+            slotBtn.addEventListener('click', () => {
+                selectedSlot = slotTime;
+                renderTimeSlots();
+            });
+
+            row.appendChild(slotBtn);
+
+            // Cal.com style: When active, render animated Confirm Pill
+            if (slotTime === selectedSlot) {
+                const confirmPill = document.createElement('button');
+                confirmPill.type = 'button';
+                confirmPill.className = 'cal-confirm-pill';
+                confirmPill.textContent = 'Confirm';
+
+                confirmPill.addEventListener('click', () => {
+                    updateSelectedPill();
+                    if (slotsPanel) slotsPanel.style.display = 'none';
+                    if (detailsPanel) detailsPanel.style.display = 'flex';
+                });
+
+                row.appendChild(confirmPill);
+            }
+
+            calSlotsContainer.appendChild(row);
+        });
+    }
+
+    function updateSelectedPill() {
+        if (calSelectedPillText) {
+            calSelectedPillText.textContent = `${formatDayHeader(selectedDate)} at ${selectedSlot} (${selectedDuration} mins)`;
         }
     }
 
-    if (dur30Tab) dur30Tab.addEventListener('click', () => setCalDuration(30));
-    if (dur15Tab) dur15Tab.addEventListener('click', () => setCalDuration(15));
+    // Render Calendar Month Grid
+    function renderCalendar() {
+        if (!calDaysGrid || !calMonthYear) return;
+
+        calMonthYear.textContent = `${monthNames[viewMonth]} ${viewYear}`;
+        calDaysGrid.innerHTML = '';
+
+        const firstDayOfMonth = new Date(viewYear, viewMonth, 1);
+        let startDay = firstDayOfMonth.getDay();
+        startDay = (startDay === 0) ? 6 : startDay - 1; // Mon = 0, Sun = 6
+
+        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        for (let i = 0; i < startDay; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.className = 'cal-day-cell empty';
+            calDaysGrid.appendChild(emptyCell);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayBtn = document.createElement('button');
+            dayBtn.type = 'button';
+            dayBtn.className = 'cal-day-cell';
+            dayBtn.textContent = day;
+
+            const thisDate = new Date(viewYear, viewMonth, day);
+            thisDate.setHours(0, 0, 0, 0);
+
+            if (thisDate < today) {
+                dayBtn.classList.add('disabled');
+                dayBtn.disabled = true;
+            } else {
+                if (thisDate.getTime() === today.getTime()) {
+                    dayBtn.classList.add('today');
+                }
+                const isSelected = selectedDate &&
+                    thisDate.getFullYear() === selectedDate.getFullYear() &&
+                    thisDate.getMonth() === selectedDate.getMonth() &&
+                    thisDate.getDate() === selectedDate.getDate();
+
+                if (isSelected) {
+                    dayBtn.classList.add('selected');
+                }
+
+                dayBtn.addEventListener('click', () => {
+                    selectedDate = new Date(viewYear, viewMonth, day);
+                    renderCalendar();
+                    renderTimeSlots();
+                });
+            }
+
+            calDaysGrid.appendChild(dayBtn);
+        }
+    }
+
+    if (calPrevMonth) {
+        calPrevMonth.addEventListener('click', () => {
+            viewMonth--;
+            if (viewMonth < 0) {
+                viewMonth = 11;
+                viewYear--;
+            }
+            renderCalendar();
+        });
+    }
+
+    if (calNextMonth) {
+        calNextMonth.addEventListener('click', () => {
+            viewMonth++;
+            if (viewMonth > 11) {
+                viewMonth = 0;
+                viewYear++;
+            }
+            renderCalendar();
+        });
+    }
+
+    if (backToSlotsBtn) {
+        backToSlotsBtn.addEventListener('click', () => {
+            if (detailsPanel) detailsPanel.style.display = 'none';
+            if (slotsPanel) slotsPanel.style.display = 'flex';
+        });
+    }
 
     function openModal() {
         modalOverlay.classList.add('active');
         modalOverlay.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+
+        if (bookingView) bookingView.style.display = 'grid';
+        if (slotsPanel) slotsPanel.style.display = 'flex';
+        if (detailsPanel) detailsPanel.style.display = 'none';
+        if (successView) successView.style.display = 'none';
+
+        renderCalendar();
+        renderTimeSlots();
     }
 
     function closeModal() {
@@ -1852,6 +2053,230 @@ function initializeBookChatAnimation() {
             closeModal();
         }
     });
+
+    // Form Submission: Schedule Call
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('calName').value.trim();
+            const email = document.getElementById('calEmail').value.trim();
+            const phone = (document.getElementById('calPhone') ? document.getElementById('calPhone').value.trim() : '') || 'Not provided';
+            const notes = (document.getElementById('calNotes') ? document.getElementById('calNotes').value.trim() : '') || '1-on-1 Discussion';
+
+            const year = selectedDate.getFullYear();
+            const month = String(selectedDate.getMonth() + 1).padStart(2, '0');
+            const day = String(selectedDate.getDate()).padStart(2, '0');
+
+            let [timePart, meridiem] = selectedSlot.split(' ');
+            let [hours, mins] = timePart.split(':');
+            let h = parseInt(hours, 10);
+            if (meridiem === 'PM' && h !== 12) h += 12;
+            if (meridiem === 'AM' && h === 12) h = 0;
+
+            // Calculate Indian Standard Time (IST: UTC+05:30) to strict UTC dates
+            const yearNum = selectedDate.getFullYear();
+            const monthIdx = selectedDate.getMonth();
+            const dayNum = selectedDate.getDate();
+            const minsNum = parseInt(mins, 10);
+
+            const startUtc = new Date(Date.UTC(yearNum, monthIdx, dayNum, h - 5, minsNum - 30, 0));
+            const endUtc = new Date(startUtc.getTime() + selectedDuration * 60000);
+
+            function toGcalUtc(d) {
+                const y = d.getUTCFullYear();
+                const mo = String(d.getUTCMonth() + 1).padStart(2, '0');
+                const da = String(d.getUTCDate()).padStart(2, '0');
+                const ho = String(d.getUTCHours()).padStart(2, '0');
+                const mi = String(d.getUTCMinutes()).padStart(2, '0');
+                const se = String(d.getUTCSeconds()).padStart(2, '0');
+                return `${y}${mo}${da}T${ho}${mi}${se}Z`;
+            }
+
+            const gcalStart = toGcalUtc(startUtc);
+            const gcalEnd = toGcalUtc(endUtc);
+            const startIsoUtc = startUtc.toISOString();
+            const endIsoUtc = endUtc.toISOString();
+
+            // Calculate formatted meeting end time string in IST
+            let endH = h;
+            let endM = minsNum + selectedDuration;
+            if (endM >= 60) {
+                endM -= 60;
+                endH += 1;
+            }
+            let endPeriod = endH >= 12 ? 'PM' : 'AM';
+            let endDisplayH = endH % 12;
+            if (endDisplayH === 0) endDisplayH = 12;
+            const endTimeStr = `${String(endDisplayH).padStart(2, '0')}:${String(endM).padStart(2, '0')} ${endPeriod}`;
+
+            const meetingName = selectedDuration === 15 ? `15 Min Quick Chat` : `30 Min Chat`;
+            const googleMeetUrl = 'https://meet.google.com/';
+
+            // Populate Cal.com Success Screen details
+            const calSuccessWhat = document.getElementById('calSuccessWhat');
+            const calSuccessWhen = document.getElementById('calSuccessWhen');
+            const calGuestNameWho = document.getElementById('calGuestNameWho');
+            const calGuestEmailWho = document.getElementById('calGuestEmailWho');
+            const calGuestPhoneWho = document.getElementById('calGuestPhoneWho');
+            const calMeetDirectLink = document.getElementById('calMeetDirectLink');
+
+            if (calSuccessWhat) {
+                calSuccessWhat.innerHTML = `${meetingName} between Vishwajeet and <span id="calGuestNameDisplay">${name}</span>`;
+            }
+            if (calSuccessWhen) {
+                calSuccessWhen.textContent = `${formatFullDate(selectedDate)}, ${selectedSlot} – ${endTimeStr} (India Standard Time)`;
+            }
+            if (calGuestNameWho) calGuestNameWho.textContent = name;
+            if (calGuestEmailWho) calGuestEmailWho.textContent = email;
+            if (calGuestPhoneWho) {
+                calGuestPhoneWho.textContent = phone && phone !== 'Not provided' ? `Phone: ${phone}` : '';
+                calGuestPhoneWho.style.display = phone && phone !== 'Not provided' ? 'inline' : 'none';
+            }
+            if (calMeetDirectLink) {
+                calMeetDirectLink.href = googleMeetUrl;
+            }
+
+            // 1. Real Google Calendar Link with UTC time, attendee auto-invite & Google Meet
+            const calGcal = document.getElementById('calGcalLink');
+            if (calGcal) {
+                const gcalDetails = `Chat with Vishwajeet (AI Software Engineer)\n\n` +
+                    `📌 Topic: ${notes}\n` +
+                    `👤 Host: Vishwajeet (vishwajeetsrk@gmail.com)\n` +
+                    `👤 Guest: ${name} (${email})\n` +
+                    (phone && phone !== 'Not provided' ? `📱 Guest Mobile: ${phone}\n` : '') +
+                    `🎥 Google Meet: ${googleMeetUrl}\n\n` +
+                    `Looking forward to our conversation!`;
+
+                const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+                    `&text=${encodeURIComponent(`${meetingName}: Vishwajeet & ${name}`)}` +
+                    `&dates=${gcalStart}/${gcalEnd}` +
+                    `&ctz=Asia/Kolkata` +
+                    `&add=vishwajeetsrk@gmail.com,${encodeURIComponent(email)}` +
+                    `&location=${encodeURIComponent(googleMeetUrl)}` +
+                    `&details=${encodeURIComponent(gcalDetails)}`;
+
+                calGcal.href = gcalUrl;
+            }
+
+            // 2. Real Outlook Web / Office 365 Deeplink with ISO UTC dates
+            const calOutlook = document.getElementById('calOutlookLink');
+            if (calOutlook) {
+                const outlookBody = `Chat with Vishwajeet (AI Software Engineer)\n\n` +
+                    `Topic: ${notes}\n` +
+                    `Host: Vishwajeet (vishwajeetsrk@gmail.com)\n` +
+                    `Guest: ${name} (${email})\n` +
+                    `Video Call: Google Meet (${googleMeetUrl})`;
+
+                const outlookUrl = `https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent` +
+                    `&subject=${encodeURIComponent(`${meetingName}: Vishwajeet & ${name}`)}` +
+                    `&startdt=${encodeURIComponent(startIsoUtc)}` +
+                    `&enddt=${encodeURIComponent(endIsoUtc)}` +
+                    `&location=${encodeURIComponent(`Google Meet (${googleMeetUrl})`)}` +
+                    `&body=${encodeURIComponent(outlookBody)}`;
+
+                calOutlook.href = outlookUrl;
+            }
+
+            // 3. Real Native RFC 5545 ICS File Download Generator
+            const calIcsBtn = document.getElementById('calIcsDownloadBtn');
+            if (calIcsBtn) {
+                calIcsBtn.onclick = () => {
+                    const nowIso = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+                    const uid = `meet-${Date.now()}-${Math.random().toString(36).substr(2, 8)}@vishwajeetsrk.github.io`;
+                    const cleanNotes = notes.replace(/(\r\n|\n|\r)/gm, ' ');
+
+                    const icsLines = [
+                        'BEGIN:VCALENDAR',
+                        'VERSION:2.0',
+                        'PRODID:-//Vishwajeet SRK//Chat with Vishwajeet//EN',
+                        'CALSCALE:GREGORIAN',
+                        'METHOD:REQUEST',
+                        'BEGIN:VEVENT',
+                        `UID:${uid}`,
+                        `DTSTAMP:${nowIso}`,
+                        `DTSTART:${gcalStart}`,
+                        `DTEND:${gcalEnd}`,
+                        `SUMMARY:${meetingName}: Vishwajeet & ${name}`,
+                        `DESCRIPTION:Meeting with Vishwajeet\\nTopic: ${cleanNotes}\\nHost: Vishwajeet (vishwajeetsrk@gmail.com)\\nGuest: ${name} (${email})\\nGoogle Meet: ${googleMeetUrl}`,
+                        `LOCATION:Google Meet (${googleMeetUrl})`,
+                        `URL:${googleMeetUrl}`,
+                        'ORGANIZER;CN="Vishwajeet":mailto:vishwajeetsrk@gmail.com',
+                        `ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN="${name}":mailto:${email}`,
+                        'STATUS:CONFIRMED',
+                        'SEQUENCE:0',
+                        'BEGIN:VALARM',
+                        'TRIGGER:-PT15M',
+                        'ACTION:DISPLAY',
+                        `DESCRIPTION:Reminder: ${meetingName} with Vishwajeet starts in 15 minutes`,
+                        'END:VALARM',
+                        'END:VEVENT',
+                        'END:VCALENDAR'
+                    ];
+
+                    const blob = new Blob([icsLines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = window.URL.createObjectURL(blob);
+                    downloadLink.setAttribute('download', `Meeting-with-Vishwajeet.ics`);
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                };
+            }
+
+            // 4. Update Cal.com badge link in success view
+            if (calSuccessDirectLink) {
+                calSuccessDirectLink.href = calLinks[selectedDuration];
+            }
+
+            // 5. Send full booking payload to Vishwajeet
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: 'ecc07fa5-6c70-4f51-bfa6-1e961fa6623d',
+                    from_name: name,
+                    subject: `New ${meetingName} Booked: ${name} on ${formatDayHeader(selectedDate)} at ${selectedSlot}`,
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    duration: `${selectedDuration} mins`,
+                    meeting_date: formatFullDate(selectedDate),
+                    meeting_time: `${selectedSlot} – ${endTimeStr} (IST)`,
+                    google_meet: googleMeetUrl,
+                    notes: notes,
+                    cal_link: calLinks[selectedDuration],
+                    type: 'Call Booking'
+                })
+            }).catch(() => {});
+
+            // Switch to success view
+            if (bookingView) bookingView.style.display = 'none';
+            if (successView) successView.style.display = 'flex';
+        });
+    }
+
+    // Reschedule & Cancel actions
+    const rescheduleBtn = document.getElementById('calRescheduleBtn');
+    const cancelBtn = document.getElementById('calCancelBtn');
+
+    if (rescheduleBtn) {
+        rescheduleBtn.addEventListener('click', () => {
+            if (successView) successView.style.display = 'none';
+            if (bookingView) bookingView.style.display = 'grid';
+            if (detailsPanel) detailsPanel.style.display = 'none';
+            if (slotsPanel) slotsPanel.style.display = 'flex';
+            renderCalendar();
+            renderTimeSlots();
+        });
+    }
+
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeModal);
+    }
+
+    if (doneBtn) {
+        doneBtn.addEventListener('click', closeModal);
+    }
 }
 
 // ===================================
