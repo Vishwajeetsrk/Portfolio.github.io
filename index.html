@@ -19,6 +19,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function () {
+            // Initialize EmailJS with your Public Key
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init({
+                    publicKey: "_odO8iID3kNF8FOJF"
+                });
+            }
+        })();
+    </script>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -1351,6 +1364,77 @@
             </div>
         </div>
     </div>
+
+    <!-- Cal.com Embed + Booking Event Listener (EmailJS Notification Backup) -->
+    <script>
+        (function (C, A, L) {
+            let p = function (a, ar) { a.q.push(ar); };
+            let d = C.document;
+            C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                    cal.ns = {};
+                    cal.q = cal.q || [];
+                    d.head.appendChild(d.createElement("script")).src = A;
+                    cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                    const api = function () { p(api, arguments); };
+                    const namespace = ar[1];
+                    api.q = api.q || [];
+                    if (typeof namespace === "string") {
+                        cal.ns[namespace] = cal.ns[namespace] || api;
+                        p(cal.ns[namespace], ar);
+                        p(cal, ["initNamespace", namespace]);
+                    } else p(cal, ar);
+                    return;
+                }
+                p(cal, ar);
+            };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", { origin: "https://cal.com" });
+
+        // Listen for real Cal.com booking confirmation -> send email notification via EmailJS
+        Cal("on", {
+            action: "bookingSuccessful",
+            callback: function (e) {
+                const booking = e.detail?.data || {};
+                const guestName = booking.attendees?.[0]?.name || 'Someone';
+                const guestEmail = booking.attendees?.[0]?.email || 'unknown';
+                const params = {
+                    name: guestName,
+                    from_name: guestName,
+                    email: guestEmail,
+                    from_email: guestEmail,
+                    reply_to: guestEmail,
+                    title: '📅 New Cal.com Booking on Portfolio!',
+                    subject: '📅 New Cal.com Booking on Portfolio!',
+                    message: 'Event: ' + (booking.eventTitle || '30 Min Chat') + '\n' +
+                             'Date: ' + (booking.startTime || 'Check Cal.com') + '\n' +
+                             'Guest: ' + guestName + '\n' +
+                             'Email: ' + guestEmail,
+                    phone: 'Via Cal.com',
+                };
+
+                // Use centralized config if available in main.js
+                const serviceId = (typeof EMAILJS_CONFIG !== 'undefined' && EMAILJS_CONFIG.SERVICE_ID) ? EMAILJS_CONFIG.SERVICE_ID : 'service_xeway2v';
+                const templateId = (typeof EMAILJS_CONFIG !== 'undefined' && EMAILJS_CONFIG.TEMPLATE_ID) ? EMAILJS_CONFIG.TEMPLATE_ID : 'YOUR_TEMPLATE_ID';
+
+                if (typeof emailjs !== 'undefined') {
+                    emailjs.send(
+                        serviceId,
+                        templateId,
+                        params
+                    ).then(function () {
+                        console.log('✅ Booking notification sent to Vishwajeet via EmailJS!');
+                    }).catch(function (err) {
+                        console.warn('EmailJS booking notify failed:', err);
+                    });
+                }
+            }
+        });
+    </script>
 
     <script src="js/main.js"></script>
 </body>

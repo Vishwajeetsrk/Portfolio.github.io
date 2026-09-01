@@ -6,6 +6,16 @@ let scrollPosition = 0;
 let ticking = false;
 
 // ===================================
+// EMAILJS CONFIGURATION
+// ===================================
+// Replace these placeholders with your actual credentials from https://dashboard.emailjs.com/
+window.EMAILJS_CONFIG = {
+    PUBLIC_KEY: '_odO8iID3kNF8FOJF',      // Configured EmailJS Public Key
+    SERVICE_ID: 'service_xeway2v',       // Connected Gmail Service ID
+    TEMPLATE_ID: 'YOUR_TEMPLATE_ID'      // EmailJS Email Templates -> Template ID (e.g. template_xyz789)
+};
+
+// ===================================
 // INITIALIZE ON PAGE LOAD
 // ===================================
 
@@ -126,30 +136,86 @@ function updateActiveNavLink() {
 function initializeMobileMenu() {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    mobileMenuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        
-        // Change icon
-        const icon = this.querySelector('i');
-        if (navMenu.classList.contains('active')) {
+    if (!mobileMenuToggle || !navMenu) return;
+
+    function openMobileMenu() {
+        navMenu.classList.add('active');
+        document.body.classList.add('menu-open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+        const icon = mobileMenuToggle.querySelector('i');
+        if (icon) {
             icon.classList.remove('fa-bars');
             icon.classList.add('fa-times');
-        } else {
+        }
+    }
+
+    function closeMobileMenu() {
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        const icon = mobileMenuToggle.querySelector('i');
+        if (icon) {
             icon.classList.remove('fa-times');
             icon.classList.add('fa-bars');
         }
-    });
-    
-    // Close menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            const icon = mobileMenuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+        // Also collapse any open sub-dropdowns
+        document.querySelectorAll('.nav-item-dropdown.dropdown-active').forEach(item => {
+            item.classList.remove('dropdown-active');
         });
+    }
+
+    mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    });
+
+    // Close menu when clicking on direct destination links (NOT dropdown toggle parents)
+    const directLinks = navMenu.querySelectorAll('a:not(.nav-item-dropdown > a)');
+    directLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 1024) {
+                closeMobileMenu();
+            }
+        });
+    });
+
+    // Close menu on clicking chat button inside mobile drawer
+    const drawerChatBtn = document.getElementById('mobileDrawerChatBtn');
+    if (drawerChatBtn) {
+        drawerChatBtn.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    }
+
+    // Close on click outside navbar
+    document.addEventListener('click', function(e) {
+        if (navMenu.classList.contains('active') && !e.target.closest('#navbar')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (navMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+            const modal = document.getElementById('chatModalOverlay');
+            if (modal && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        }
+    });
+
+    // Auto-close if resized to desktop (> 1024px)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 1024 && navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
     });
 }
 
@@ -247,9 +313,20 @@ function initializeParticles() {
 // ===================================
 
 function initializeScrollAnimations() {
+    // If user prefers reduced motion, reveal all data-aos items immediately
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('[data-aos]').forEach(el => {
+            el.classList.add('aos-animate');
+            if (el.classList.contains('skill-item')) {
+                animateSkillBar(el);
+            }
+        });
+        return;
+    }
+
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
+        threshold: 0.05,
+        rootMargin: '0px 0px -30px 0px'
     };
     
     const observer = new IntersectionObserver(function(entries) {
@@ -341,58 +418,86 @@ function initializeContactForm() {
     const formSuccess = document.getElementById('formSuccess');
     const contactSubmitBtn = document.getElementById('contactSubmitBtn');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values including phone
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                phone: (document.getElementById('phone') ? document.getElementById('phone').value.trim() : '') || 'Not provided',
-                subject: document.getElementById('subject').value.trim(),
-                message: document.getElementById('message').value.trim()
-            };
-            
-            // Validate form
-            if (validateForm(formData)) {
-                if (contactSubmitBtn) {
-                    contactSubmitBtn.disabled = true;
-                    contactSubmitBtn.innerHTML = '<span><i class="fas fa-spinner fa-spin"></i> Sending...</span>';
-                }
+    if (!contactForm) return;
 
-                // Dispatch to serverless endpoint so Vishwajeet receives it directly
-                fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({
-                        access_key: 'ecc07fa5-6c70-4f51-bfa6-1e961fa6623d',
-                        from_name: formData.name,
-                        subject: `Portfolio Contact: ${formData.subject}`,
-                        name: formData.name,
-                        email: formData.email,
-                        phone: formData.phone,
-                        message: formData.message
-                    })
-                }).catch(() => {});
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Collect form values matching portfolio fields
+        const formData = {
+            name: (document.getElementById('name')?.value || '').trim(),
+            email: (document.getElementById('email')?.value || '').trim(),
+            phone: (document.getElementById('phone')?.value || '').trim() || 'Not provided',
+            subject: (document.getElementById('subject')?.value || '').trim() || 'Portfolio Contact',
+            message: (document.getElementById('message')?.value || '').trim()
+        };
+        
+        // Validate form
+        if (!validateForm(formData)) {
+            return;
+        }
 
-                // Show success message
-                contactForm.style.display = 'none';
-                formSuccess.classList.add('show');
-                
-                // Allow resetting after 6 seconds
-                setTimeout(() => {
-                    contactForm.reset();
-                    contactForm.style.display = 'flex';
-                    formSuccess.classList.remove('show');
-                    if (contactSubmitBtn) {
-                        contactSubmitBtn.disabled = false;
-                        contactSubmitBtn.innerHTML = '<span><i class="fas fa-paper-plane"></i> Send Message</span><span class="btn-bottom-gradient"></span><span class="btn-bottom-gradient-glow"></span>';
-                    }
-                }, 6000);
+        const originalBtnHtml = contactSubmitBtn ? contactSubmitBtn.innerHTML : '';
+
+        // Show loading state
+        if (contactSubmitBtn) {
+            contactSubmitBtn.disabled = true;
+            contactSubmitBtn.innerHTML = '<span><i class="fas fa-spinner fa-spin"></i> Sending...</span>';
+        }
+
+        const templateParams = {
+            name: formData.name,
+            from_name: formData.name,
+            email: formData.email,
+            from_email: formData.email,
+            reply_to: formData.email,
+            title: formData.subject,
+            subject: formData.subject,
+            phone: formData.phone,
+            message: formData.message
+        };
+
+        try {
+            if (typeof emailjs === 'undefined') {
+                throw new Error('EmailJS SDK not loaded');
             }
-        });
-    }
+
+            // Ensure initialized with public key if configured
+            if (EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+                emailjs.init({ publicKey: EMAILJS_CONFIG.PUBLIC_KEY });
+            }
+
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams
+            );
+
+            // Show success message and reset form
+            contactForm.reset();
+            contactForm.style.display = 'none';
+            if (formSuccess) {
+                formSuccess.classList.add('show');
+            }
+            
+            // Allow resetting after 6 seconds
+            setTimeout(() => {
+                contactForm.style.display = 'flex';
+                if (formSuccess) {
+                    formSuccess.classList.remove('show');
+                }
+            }, 6000);
+
+        } catch (error) {
+            console.error('EmailJS send error:', error);
+            alert('❌ Failed to send message. Please email directly: vishwajeetsrk@gmail.com');
+        } finally {
+            if (contactSubmitBtn) {
+                contactSubmitBtn.disabled = false;
+                contactSubmitBtn.innerHTML = originalBtnHtml || '<span><i class="fas fa-paper-plane"></i> Send Message</span><span class="btn-bottom-gradient"></span><span class="btn-bottom-gradient-glow"></span>';
+            }
+        }
+    });
 }
 
 function validateForm(data) {
@@ -1551,7 +1656,7 @@ function initializeAceternityInputs() {
 function initializeFollowerPointer() {
     const cards = document.querySelectorAll('.follower-pointer-card');
     if (cards.length === 0) return;
-    if (window.matchMedia('(hover: none)').matches || window.innerWidth < 992) return;
+    if (window.matchMedia('(hover: none)').matches || window.innerWidth <= 1024) return;
 
     cards.forEach(card => {
         let badge = card.querySelector('.follower-pointer-badge');
@@ -1611,26 +1716,43 @@ function initializeNavbarMenu() {
         const link = item.querySelector('.nav-link');
         const popover = item.querySelector('.nav-dropdown-menu');
 
-        // Toggle on mobile click
+        // Toggle accordion on mobile/tablet click (<= 1024px)
         if (link) {
             link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 992) {
+                if (window.innerWidth <= 1024) {
                     e.preventDefault();
+                    e.stopPropagation();
+
+                    // Close other open dropdowns for accordion effect
+                    dropdownItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('dropdown-active');
+                        }
+                    });
+
                     item.classList.toggle('dropdown-active');
                 }
             });
         }
 
-        // Close on clicking links inside popover
+        // Close drawer when clicking links inside popover
         if (popover) {
             popover.querySelectorAll('a').forEach(sublink => {
                 sublink.addEventListener('click', () => {
                     item.classList.remove('dropdown-active');
                     const navMenu = document.getElementById('navMenu');
-                    if (navMenu && window.innerWidth <= 992) {
+                    if (navMenu && window.innerWidth <= 1024) {
                         navMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
                         const toggle = document.getElementById('mobileMenuToggle');
-                        if (toggle) toggle.classList.remove('active');
+                        if (toggle) {
+                            toggle.setAttribute('aria-expanded', 'false');
+                            const icon = toggle.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('fa-times');
+                                icon.classList.add('fa-bars');
+                            }
+                        }
                     }
                 });
             });
@@ -2229,25 +2351,32 @@ function initializeBookChatAnimation() {
                 };
             }
 
-            // 5. Send booking payload to Vishwajeet
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    access_key: 'ecc07fa5-6c70-4f51-bfa6-1e961fa6623d',
-                    from_name: name,
-                    subject: `📅 New ${meetingName} Booked: ${name} on ${formatDayHeader(selectedDate)} at ${selectedSlot}`,
-                    name: name,
-                    email: email,
-                    duration: `${selectedDuration} mins`,
-                    meeting_date: formatFullDate(selectedDate),
-                    meeting_time: `${selectedSlot} – ${endTimeStr} (IST)`,
-                    google_meet: googleMeetUrl,
-                    notes: notes,
-                    cal_link: calLinks[selectedDuration],
-                    type: 'Call Booking'
-                })
-            }).catch(() => {});
+            // 5. Send booking notification to Vishwajeet via EmailJS
+            if (typeof emailjs !== 'undefined') {
+                if (EMAILJS_CONFIG.PUBLIC_KEY && EMAILJS_CONFIG.PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+                    emailjs.init({ publicKey: EMAILJS_CONFIG.PUBLIC_KEY });
+                }
+
+                emailjs.send(
+                    EMAILJS_CONFIG.SERVICE_ID,
+                    EMAILJS_CONFIG.TEMPLATE_ID,
+                    {
+                        name: name,
+                        from_name: name,
+                        email: email,
+                        from_email: email,
+                        reply_to: email,
+                        title: `📅 New ${meetingName} Booked: ${name}`,
+                        subject: `📅 New ${meetingName} Booked: ${name}`,
+                        phone: 'Via Cal Modal Booking',
+                        message: `Meeting: ${meetingName}\nGuest: ${name} (${email})\nDate: ${formatFullDate(selectedDate)}\nTime: ${selectedSlot} – ${endTimeStr} (IST)\nDuration: ${selectedDuration} mins\nTopic: ${notes}\nGoogle Meet: ${googleMeetUrl}`
+                    }
+                ).then(() => {
+                    console.log('✅ Booking notification sent to Vishwajeet via EmailJS');
+                }).catch(err => {
+                    console.warn('EmailJS booking notify error:', err);
+                });
+            }
 
             // Switch to success view
             if (bookingView) bookingView.style.display = 'none';

@@ -302,6 +302,37 @@ mindmap
 
 ---
 
+## 📱 Responsive UI & Multi-Device Engineering
+
+The portfolio has undergone a systematic responsive and animation engineering audit, guaranteeing pixel-perfect layout and performance across all device form factors without using `overflow-x: hidden` as a global masking band-aid:
+
+- **Zero Horizontal Overflow Across All Screen Sizes**: Audited and verified across 9 discrete viewport profiles:
+  - 📱 **Small Mobile (320px × 568px)**: iPhone SE 1st Gen & foldable covers
+  - 📱 **Standard Mobile (375px × 667px)**: iPhone SE 2nd/3rd Gen
+  - 📱 **Flagship Mobile (393px × 852px)**: iPhone 14/15/16 Pro
+  - 📟 **Tablet Portrait (768px × 1024px)**: iPad Mini / Air
+  - 📟 **Tablet Landscape (1024px × 768px)**: iPad Pro
+  - 💻 **Small Laptop (1280px × 800px)**: 13" MacBook Air & Ultrabooks
+  - 🖥️ **Desktop Display (1440px × 900px)**: 24" Standard Workstations
+  - 🖥️ **Full HD (1920px × 1080px)**: 27" 1080p Monitors
+  - 🖥️ **4K Ultra-Wide (3840px × 2160px)**: 4K & Ultra-Wide Creator Monitors
+- **Mobile Navigation Drawer & Accordion**: Opaque theme-aware backdrop (`#ffffff` / `#0f172a`) preventing hero text bleed-through, collapsible submenus for About, Skills, and Projects with 180° rotating arrows, body scroll locking (`body.menu-open`), outside-click dismiss, and `Escape` key listeners.
+- **Touch-Friendly Project Cards**: Dedicated mobile overlay positioning Live Demo and GitHub buttons as high-contrast circular buttons at the bottom-right corner of each card, eliminating the desktop `:hover` requirement.
+- **Fluid Clamped Typography**: Standardized `overflow-wrap: break-word; word-break: normal;` ensuring no mid-word hyphenless splits, with fluid `clamp()` scaling for headings, badges, and subtitle flip pills.
+- **Motion & Accessibility**: Fully compliant with `prefers-reduced-motion: reduce`, immediately revealing content and disabling heavy background matrix filters.
+
+---
+
+## 📧 Serverless Email & Cal.com Booking Integration
+
+The portfolio connects client-side form submissions and Cal.com bookings directly to Gmail via **EmailJS v4 SDK**:
+
+- **Real Contact Form Dispatch**: Submissions via the Contact form are validated and dispatched via EmailJS (`service_xeway2v`), notifying `vishwajeetsrk@gmail.com` with sender name, email, phone, subject, and message.
+- **Cal.com Real Embed Listener**: When a visitor schedules a call, the official Cal.com embed triggers `bookingSuccessful`, automatically sending an instant backup email notification to Vishwajeet.
+- **Interactive Cal Modal Backup**: The built-in interactive booking calendar also dispatches an EmailJS payload upon slot confirmation.
+
+---
+
 ## 📋 How to Copy & Use Any Component
 
 All components are written in standard **Vanilla HTML5, CSS3, and JavaScript**, making them fully portable without npm dependencies.
