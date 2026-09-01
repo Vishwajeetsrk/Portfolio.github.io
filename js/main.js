@@ -2130,10 +2130,10 @@ function initializeBookChatAnimation() {
             if (calGuestEmailWho) calGuestEmailWho.textContent = email;
             if (calMeetDirectLink) {
                 calMeetDirectLink.href = googleMeetUrl;
+                calMeetDirectLink.target = '_blank';
+                calMeetDirectLink.rel = 'noopener noreferrer';
                 calMeetDirectLink.onclick = (e) => {
                     e.stopPropagation();
-                    window.open(googleMeetUrl, '_blank', 'noopener,noreferrer');
-                    e.preventDefault();
                 };
             }
 
@@ -2159,10 +2159,10 @@ function initializeBookChatAnimation() {
                 }
 
                 calGcal.href = gcalUrl;
+                calGcal.target = '_blank';
+                calGcal.rel = 'noopener noreferrer';
                 calGcal.onclick = (e) => {
                     e.stopPropagation();
-                    window.open(gcalUrl, '_blank', 'noopener,noreferrer');
-                    e.preventDefault();
                 };
             }
 
@@ -2183,10 +2183,10 @@ function initializeBookChatAnimation() {
                     `&body=${encodeURIComponent(outlookBody)}`;
 
                 calOutlook.href = outlookUrl;
+                calOutlook.target = '_blank';
+                calOutlook.rel = 'noopener noreferrer';
                 calOutlook.onclick = (e) => {
                     e.stopPropagation();
-                    window.open(outlookUrl, '_blank', 'noopener,noreferrer');
-                    e.preventDefault();
                 };
             }
 
