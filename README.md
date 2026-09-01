@@ -12,15 +12,34 @@
 
 **A state-of-the-art, high-performance personal portfolio, executive resume, and open-source UI design system showcasing cutting-edge Aceternity UI animations converted into lightweight, zero-dependency Vanilla HTML5, CSS3, and JavaScript.**
 
-[Explore Live Demo](https://vishwajeetsrk.github.io/) • [Flagship Projects with GIFs](#-flagship-projects-showcase) • [UI Component Library](#-ui-animation--components-library) • [How to Use & Copy](#-how-to-copy--use-any-component) • [Local Setup](#-local-setup--quickstart)
+[Explore Live Demo](https://vishwajeetsrk.github.io/) • [Projects Gallery](#-live-projects-visual-gallery) • [Detailed Project Showcases](#-detailed-project-showcases) • [UI Component Library](#-ui-animation--components-library) • [Local Setup](#-local-setup--quickstart)
 
 </div>
 
 ---
 
+## 🚀 Live Projects Visual Gallery
+
+Click on any project GIF or link below to launch the live production deployment:
+
+| 🚀 [Learnify AI — AI Learning SaaS](https://www.learnifyai.in/) | ⚡ [DreamSync — AI Career Intelligence](https://dream-sync-nine.vercel.app/) |
+| :---: | :---: |
+| [![Learnify AI Live Demo](assets/projects/learnify-ai.gif)](https://www.learnifyai.in/) | [![DreamSync Live Demo](assets/projects/dreamsync.gif)](https://dream-sync-nine.vercel.app/) |
+| **Stack:** React 19 • TypeScript • Tailwind • Supabase • Cashfree | **Stack:** Next.js • React • Tailwind • Google Gemini API • Redis |
+| 🔗 **[Launch Live Demo](https://www.learnifyai.in/)** • 💻 **[GitHub Repository](https://github.com/Vishwajeetsrk/learnifyai)** | 🔗 **[Launch Live Demo](https://dream-sync-nine.vercel.app/)** • 💻 **[GitHub Repository](https://github.com/Vishwajeetsrk/dreamssync_test)** |
+
+| 👔 [Luxury Laundry — Real-Time On-Demand](https://luxurylaundry.vercel.app/) | 🤖 [JARVIS AI OS — Agentic Desktop System](https://jarvisaios.vercel.app/) |
+| :---: | :---: |
+| [![Luxury Laundry Live Demo](assets/projects/luxury-laundry.gif)](https://luxurylaundry.vercel.app/) | [![JARVIS AI OS Live Demo](assets/projects/jarvis-ai-os.gif)](https://jarvisaios.vercel.app/) |
+| **Stack:** Next.js • Express.js • PostgreSQL • Prisma • Socket.io | **Stack:** JavaScript • AI Agents • Voice AI • Semantic Recall • Tauri |
+| 🔗 **[Launch Live Demo](https://luxurylaundry.vercel.app/)** • 💻 **[GitHub Repository](https://github.com/Vishwajeetsrk/LUXURY-LAUNDRY)** | 🔗 **[Launch Live Demo](https://jarvisaios.vercel.app/)** • 💻 **[GitHub Repository](https://github.com/Vishwajeetsrk/JARVIS-AI-OS)** |
+
+---
+
 ## 📖 Table of Contents
 
-- [🚀 Flagship Projects Showcase (with GIFs)](#-flagship-projects-showcase)
+- [🚀 Live Projects Visual Gallery](#-live-projects-visual-gallery)
+- [🔥 Detailed Project Showcases](#-detailed-project-showcases)
   - [1. Learnify AI — Multi-Modal AI Learning & Career SaaS](#1-learnify-ai--multi-modal-ai-learning--career-saas)
   - [2. DreamSync — AI Career Intelligence & ATS Suite](#2-dreamsync--ai-career-intelligence--ats-suite)
   - [3. Luxury Laundry — Real-Time On-Demand SaaS](#3-luxury-laundry--real-time-on-demand-saas)
@@ -46,9 +65,7 @@
 
 ---
 
-## 🚀 Flagship Projects Showcase
-
-Every flagship project has been deployed live to production with source code available on GitHub.
+## 🔥 Detailed Project Showcases
 
 ---
 
@@ -56,11 +73,7 @@ Every flagship project has been deployed live to production with source code ava
 
 > **Live Platform:** [https://www.learnifyai.in/](https://www.learnifyai.in/) • **GitHub:** [Vishwajeetsrk/learnifyai](https://github.com/Vishwajeetsrk/learnifyai)
 
-<div align="center">
-  <img src="assets/projects/learnify-ai.gif" alt="Learnify AI Platform Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-</div>
-
-<br />
+[![Learnify AI Platform Full Demo](assets/projects/learnify-ai.gif)](https://www.learnifyai.in/)
 
 - **Overview:** End-to-end full-stack AI SaaS platform unifying multi-modal AI tutoring, personalized career roadmapping, AI resume builder, ATS compatibility analyzer, creator publishing tools, and community peer learning.
 - **Tech Stack:** React 19, TypeScript, Tailwind CSS, Supabase, OpenRouter API, Cashfree Payment Gateway.
@@ -76,11 +89,7 @@ Every flagship project has been deployed live to production with source code ava
 
 > **Live Platform:** [https://dream-sync-nine.vercel.app/](https://dream-sync-nine.vercel.app/) • **GitHub:** [Vishwajeetsrk/dreamssync_test](https://github.com/Vishwajeetsrk/dreamssync_test)
 
-<div align="center">
-  <img src="assets/projects/dreamsync.gif" alt="DreamSync AI Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-</div>
-
-<br />
+[![DreamSync AI Full Demo](assets/projects/dreamsync.gif)](https://dream-sync-nine.vercel.app/)
 
 - **Overview:** AI-driven career acceleration suite featuring automated ATS resume checking, LinkedIn profile optimization, and dynamic portfolio generation powered by Google Gemini & OpenRouter.
 - **Tech Stack:** Next.js App Router, React, Tailwind CSS, Firebase, Google Gemini API, Upstash Redis.
@@ -96,11 +105,7 @@ Every flagship project has been deployed live to production with source code ava
 
 > **Live Platform:** [https://luxurylaundry.vercel.app/](https://luxurylaundry.vercel.app/) • **GitHub:** [Vishwajeetsrk/LUXURY-LAUNDRY](https://github.com/Vishwajeetsrk/LUXURY-LAUNDRY)
 
-<div align="center">
-  <img src="assets/projects/luxury-laundry.gif" alt="Luxury Laundry Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-</div>
-
-<br />
+[![Luxury Laundry Full Demo](assets/projects/luxury-laundry.gif)](https://luxurylaundry.vercel.app/)
 
 - **Overview:** Full-stack on-demand laundry and garment management platform with synchronized customer order tracking, administrator control center, and live WebSockets status notifications.
 - **Tech Stack:** Next.js, Express.js, PostgreSQL, Prisma ORM, Socket.io, Tailwind CSS.
@@ -116,11 +121,7 @@ Every flagship project has been deployed live to production with source code ava
 
 > **Live Platform:** [https://jarvisaios.vercel.app/](https://jarvisaios.vercel.app/) • **GitHub:** [Vishwajeetsrk/JARVIS-AI-OS](https://github.com/Vishwajeetsrk/JARVIS-AI-OS)
 
-<div align="center">
-  <img src="assets/projects/jarvis-ai-os.gif" alt="JARVIS AI OS Demo" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.5);" />
-</div>
-
-<br />
+[![JARVIS AI OS Full Demo](assets/projects/jarvis-ai-os.gif)](https://jarvisaios.vercel.app/)
 
 - **Overview:** Experimental AI desktop operating system interface integrating persistent semantic memory recall, autonomous multi-agent task execution, and interactive voice intelligence.
 - **Tech Stack:** JavaScript, AI Agents, Voice AI, Semantic Recall, Tauri, Progressive Web App (PWA).
@@ -154,7 +155,7 @@ A pixel-perfect, native replica of the **Cal.com** scheduling experience from Ac
 - **3-Column Layout:** Left event summary panel, center interactive month date picker, right available slot list.
 - **Strict Availability Engine:** Configured for daily recurring availability **`3:00 PM – 9:00 PM IST`** with automatic past-time and past-date disabling.
 - **Signature Split-Confirm Interaction:** Clicking any time slot reveals an animated `[ Confirm ]` button that slides forward into attendee details.
-- **Clean Booking Form:** Collects Name, Email, and Topic (phone removed for privacy).
+- **Clean Booking Form:** Collects Name, Email, and Topic.
 - **Direct Multi-Calendar Sync:**
   - 📅 **Google Calendar:** Native tab navigation with exact Universal UTC timestamps, `ctz=Asia/Kolkata`, and Google Meet attachment.
   - 📆 **Outlook Calendar:** Deep link with ISO 8601 UTC timestamps.
