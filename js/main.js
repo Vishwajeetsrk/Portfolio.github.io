@@ -2060,7 +2060,6 @@ function initializeBookChatAnimation() {
             e.preventDefault();
             const name = document.getElementById('calName').value.trim();
             const email = document.getElementById('calEmail').value.trim();
-            const phone = (document.getElementById('calPhone') ? document.getElementById('calPhone').value.trim() : '') || 'Not provided';
             const notes = (document.getElementById('calNotes') ? document.getElementById('calNotes').value.trim() : '') || '1-on-1 Discussion';
 
             const year = selectedDate.getFullYear();
@@ -2110,14 +2109,13 @@ function initializeBookChatAnimation() {
             const endTimeStr = `${String(endDisplayH).padStart(2, '0')}:${String(endM).padStart(2, '0')} ${endPeriod}`;
 
             const meetingName = selectedDuration === 15 ? `15 Min Quick Chat` : `30 Min Chat`;
-            const googleMeetUrl = 'https://meet.google.com/';
+            const googleMeetUrl = 'https://meet.google.com/new';
 
-            // Populate Cal.com Success Screen details
+            // Populate Success Screen details
             const calSuccessWhat = document.getElementById('calSuccessWhat');
             const calSuccessWhen = document.getElementById('calSuccessWhen');
             const calGuestNameWho = document.getElementById('calGuestNameWho');
             const calGuestEmailWho = document.getElementById('calGuestEmailWho');
-            const calGuestPhoneWho = document.getElementById('calGuestPhoneWho');
             const calMeetDirectLink = document.getElementById('calMeetDirectLink');
 
             if (calSuccessWhat) {
@@ -2128,10 +2126,6 @@ function initializeBookChatAnimation() {
             }
             if (calGuestNameWho) calGuestNameWho.textContent = name;
             if (calGuestEmailWho) calGuestEmailWho.textContent = email;
-            if (calGuestPhoneWho) {
-                calGuestPhoneWho.textContent = phone && phone !== 'Not provided' ? `Phone: ${phone}` : '';
-                calGuestPhoneWho.style.display = phone && phone !== 'Not provided' ? 'inline' : 'none';
-            }
             if (calMeetDirectLink) {
                 calMeetDirectLink.href = googleMeetUrl;
             }
@@ -2143,17 +2137,19 @@ function initializeBookChatAnimation() {
                     `📌 Topic: ${notes}\n` +
                     `👤 Host: Vishwajeet (vishwajeetsrk@gmail.com)\n` +
                     `👤 Guest: ${name} (${email})\n` +
-                    (phone && phone !== 'Not provided' ? `📱 Guest Mobile: ${phone}\n` : '') +
                     `🎥 Google Meet: ${googleMeetUrl}\n\n` +
                     `Looking forward to our conversation!`;
 
-                const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+                let gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE` +
                     `&text=${encodeURIComponent(`${meetingName}: Vishwajeet & ${name}`)}` +
                     `&dates=${gcalStart}/${gcalEnd}` +
                     `&ctz=Asia/Kolkata` +
-                    `&add=vishwajeetsrk@gmail.com,${encodeURIComponent(email)}` +
                     `&location=${encodeURIComponent(googleMeetUrl)}` +
                     `&details=${encodeURIComponent(gcalDetails)}`;
+
+                if (email && email.toLowerCase() !== 'vishwajeetsrk@gmail.com') {
+                    gcalUrl += `&add=${encodeURIComponent(email)}`;
+                }
 
                 calGcal.href = gcalUrl;
             }
@@ -2177,50 +2173,44 @@ function initializeBookChatAnimation() {
                 calOutlook.href = outlookUrl;
             }
 
-            // 3. Real Native RFC 5545 ICS File Download Generator
-            const calIcsBtn = document.getElementById('calIcsDownloadBtn');
-            if (calIcsBtn) {
-                calIcsBtn.onclick = () => {
-                    const nowIso = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-                    const uid = `meet-${Date.now()}-${Math.random().toString(36).substr(2, 8)}@vishwajeetsrk.github.io`;
-                    const cleanNotes = notes.replace(/(\r\n|\n|\r)/gm, ' ');
+            // 3. Real Native RFC 5545 ICS File Download via direct data URI
+            const calIcsLink = document.getElementById('calIcsDownloadLink');
+            if (calIcsLink) {
+                const nowIso = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+                const uid = `meet-${Date.now()}-${Math.random().toString(36).substr(2, 8)}@vishwajeetsrk.github.io`;
+                const cleanNotes = notes.replace(/(\r\n|\n|\r)/gm, ' ');
 
-                    const icsLines = [
-                        'BEGIN:VCALENDAR',
-                        'VERSION:2.0',
-                        'PRODID:-//Vishwajeet SRK//Chat with Vishwajeet//EN',
-                        'CALSCALE:GREGORIAN',
-                        'METHOD:REQUEST',
-                        'BEGIN:VEVENT',
-                        `UID:${uid}`,
-                        `DTSTAMP:${nowIso}`,
-                        `DTSTART:${gcalStart}`,
-                        `DTEND:${gcalEnd}`,
-                        `SUMMARY:${meetingName}: Vishwajeet & ${name}`,
-                        `DESCRIPTION:Meeting with Vishwajeet\\nTopic: ${cleanNotes}\\nHost: Vishwajeet (vishwajeetsrk@gmail.com)\\nGuest: ${name} (${email})\\nGoogle Meet: ${googleMeetUrl}`,
-                        `LOCATION:Google Meet (${googleMeetUrl})`,
-                        `URL:${googleMeetUrl}`,
-                        'ORGANIZER;CN="Vishwajeet":mailto:vishwajeetsrk@gmail.com',
-                        `ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN="${name}":mailto:${email}`,
-                        'STATUS:CONFIRMED',
-                        'SEQUENCE:0',
-                        'BEGIN:VALARM',
-                        'TRIGGER:-PT15M',
-                        'ACTION:DISPLAY',
-                        `DESCRIPTION:Reminder: ${meetingName} with Vishwajeet starts in 15 minutes`,
-                        'END:VALARM',
-                        'END:VEVENT',
-                        'END:VCALENDAR'
-                    ];
+                const icsLines = [
+                    'BEGIN:VCALENDAR',
+                    'VERSION:2.0',
+                    'PRODID:-//Vishwajeet SRK//Chat with Vishwajeet//EN',
+                    'CALSCALE:GREGORIAN',
+                    'METHOD:REQUEST',
+                    'BEGIN:VEVENT',
+                    `UID:${uid}`,
+                    `DTSTAMP:${nowIso}`,
+                    `DTSTART:${gcalStart}`,
+                    `DTEND:${gcalEnd}`,
+                    `SUMMARY:${meetingName}: Vishwajeet & ${name}`,
+                    `DESCRIPTION:Meeting with Vishwajeet\\nTopic: ${cleanNotes}\\nHost: Vishwajeet (vishwajeetsrk@gmail.com)\\nGuest: ${name} (${email})\\nGoogle Meet: ${googleMeetUrl}`,
+                    `LOCATION:Google Meet (${googleMeetUrl})`,
+                    `URL:${googleMeetUrl}`,
+                    'ORGANIZER;CN="Vishwajeet":mailto:vishwajeetsrk@gmail.com',
+                    `ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;CN="${name}":mailto:${email}`,
+                    'STATUS:CONFIRMED',
+                    'SEQUENCE:0',
+                    'BEGIN:VALARM',
+                    'TRIGGER:-PT15M',
+                    'ACTION:DISPLAY',
+                    `DESCRIPTION:Reminder: ${meetingName} with Vishwajeet starts in 15 minutes`,
+                    'END:VALARM',
+                    'END:VEVENT',
+                    'END:VCALENDAR'
+                ];
 
-                    const blob = new Blob([icsLines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
-                    const downloadLink = document.createElement('a');
-                    downloadLink.href = window.URL.createObjectURL(blob);
-                    downloadLink.setAttribute('download', `Meeting-with-Vishwajeet.ics`);
-                    document.body.appendChild(downloadLink);
-                    downloadLink.click();
-                    document.body.removeChild(downloadLink);
-                };
+                const icsString = icsLines.join('\r\n');
+                calIcsLink.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(icsString);
+                calIcsLink.setAttribute('download', 'Meeting-with-Vishwajeet.ics');
             }
 
             // 4. Update Cal.com badge link in success view
@@ -2228,17 +2218,16 @@ function initializeBookChatAnimation() {
                 calSuccessDirectLink.href = calLinks[selectedDuration];
             }
 
-            // 5. Send full booking payload to Vishwajeet
+            // 5. Send booking payload to Vishwajeet
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify({
                     access_key: 'ecc07fa5-6c70-4f51-bfa6-1e961fa6623d',
                     from_name: name,
-                    subject: `New ${meetingName} Booked: ${name} on ${formatDayHeader(selectedDate)} at ${selectedSlot}`,
+                    subject: `📅 New ${meetingName} Booked: ${name} on ${formatDayHeader(selectedDate)} at ${selectedSlot}`,
                     name: name,
                     email: email,
-                    phone: phone,
                     duration: `${selectedDuration} mins`,
                     meeting_date: formatFullDate(selectedDate),
                     meeting_time: `${selectedSlot} – ${endTimeStr} (IST)`,

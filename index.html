@@ -1338,10 +1338,6 @@
                             <input type="email" id="calEmail" placeholder="you@company.com" required class="cal-form-input">
                         </div>
                         <div class="cal-form-group">
-                            <label for="calPhone">Mobile / WhatsApp Number *</label>
-                            <input type="tel" id="calPhone" placeholder="+91 98765 43210" required class="cal-form-input">
-                        </div>
-                        <div class="cal-form-group">
                             <label for="calNotes">Additional Notes</label>
                             <textarea id="calNotes" rows="2" placeholder="Discussion topics, project overview..." class="cal-form-input cal-textarea"></textarea>
                         </div>
@@ -1359,7 +1355,7 @@
                     <i class="fas fa-check"></i>
                 </div>
                 <h3 class="cal-success-title">This meeting is scheduled</h3>
-                <p class="cal-success-sub">We sent an email with a calendar invitation with the details to everyone.</p>
+                <p class="cal-success-sub">Meeting is confirmed. Add directly to your calendar or join with Google Meet below:</p>
                 
                 <div class="cal-meeting-card">
                     <div class="cal-detail-item">
@@ -1390,16 +1386,15 @@
                                     <span class="cal-role-tag guest">Guest</span>
                                 </div>
                                 <span class="cal-person-email" id="calGuestEmailWho">guest@company.com</span>
-                                <span class="cal-person-phone" id="calGuestPhoneWho">+91 98765 43210</span>
                             </div>
                         </div>
                     </div>
                     <div class="cal-detail-item">
                         <span class="cal-detail-label">Where</span>
                         <div class="cal-detail-value cal-where-line">
-                            <a href="https://meet.google.com/" id="calMeetDirectLink" target="_blank" rel="noopener noreferrer" class="cal-meet-badge-btn" title="Open Google Meet">
+                            <a href="https://meet.google.com/new" id="calMeetDirectLink" target="_blank" rel="noopener noreferrer" class="cal-meet-badge-btn" title="Open Google Meet">
                                 <i class="fas fa-video"></i>
-                                <span>Google Meet</span>
+                                <span>Google Meet (Click to Join)</span>
                                 <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 4px;"></i>
                             </a>
                             <span class="cal-where-note">(Video call ready • Google Meet)</span>
@@ -1429,10 +1424,10 @@
                             </svg>
                             <span>Outlook</span>
                         </a>
-                        <button type="button" id="calIcsDownloadBtn" class="cal-cal-button">
+                        <a href="#" id="calIcsDownloadLink" class="cal-cal-button" download="Meeting-with-Vishwajeet.ics">
                             <i class="far fa-calendar-alt"></i>
                             <span>ICS file</span>
-                        </button>
+                        </a>
                         <a href="https://cal.com/vishwajeet-srk/30min" target="_blank" id="calSuccessDirectLink" class="cal-cal-button calcom-badge" rel="noopener noreferrer">
                             <i class="far fa-calendar-check"></i>
                             <span>Cal.com</span>
